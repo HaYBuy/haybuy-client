@@ -3,4 +3,8 @@ class TImage {
   static const String tOnboardingImage1 = 'assets/images/on_boarding_images/on-boarding-image-1.png';
   static const String tOnboardingImage2 = 'assets/images/on_boarding_images/on-boarding-image-2.png';
   static const String tOnboardingImage3 = 'assets/images/on_boarding_images/on-boarding-image-3.png';
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d63eb60d06923e321ade6b61baa28a7dc7c0ac9f
