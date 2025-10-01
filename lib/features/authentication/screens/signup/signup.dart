@@ -22,6 +22,7 @@ class SignupScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: Sizes.spaceBtwSections),
+
               ///Form
               SignupForm(),
             ],

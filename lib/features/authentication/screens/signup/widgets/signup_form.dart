@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:haybuy_client/features/authentication/screens/signup/verify_email.dart';
 import 'package:haybuy_client/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
@@ -79,7 +81,7 @@ class SignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.to(() => const VerifyEmailScreen()),
               child: const Text(Texts.createAccount),
             ),
           ),
