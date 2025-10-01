@@ -1,14 +1,4 @@
 class Texts {
-  static const String onBoardingTitle1 = "Choose your product";
-  static const String onBoardingTitle2 = "Select Payment Method";
-  static const String onBoardingTitle3 = "Delivery at your door step";
-
-  static const String onBoardingSubTile1 =
-      "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
-  static const String onBoardingSubTile2 =
-      "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
-  static const String onBoardingSubTile3 =
-      "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
 
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Taimoor Sikander";
@@ -16,16 +6,16 @@ class Texts {
   static const String dateOfBirthError = "You must be at least 18 years old.";
 
   // Onboarding Texts
-  static const String onboardingTitle1 = 'Find Products';
-  static const String onboardingTitle2 = 'Fast Delivery';
-  static const String onboardingTitle3 = 'Easy Payment';
+  static const String onboardingTitle1 = "Choose your product";
+  static const String onboardingTitle2 = "Select Payment Method";
+  static const String onboardingTitle3 = "Delivery at your door step";
 
   static const String onboardingSubTitle1 =
-      'Easily find your products in our app with just a few taps.';
+      "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
   static const String onboardingSubTitle2 =
-      'Get your products delivered to your doorstep quickly and reliably.';
+      "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
   static const String onboardingSubTitle3 =
-      'Pay for your products easily and securely through our app.';
+      "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
 
   static const String loginTitle = "Welcome Back,";
   static const String loginSubTitle =
@@ -58,4 +48,7 @@ class Texts {
   static const String verificationCode = "Verification Code";
   static const String resenEmail = "Resend E-mail";
   static const String resenEmailIn = "Resend E-mail in";
+
+  static const String signupTitle = "Let's create your account";
+  static const String and = "and";
 }
