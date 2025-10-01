@@ -13,7 +13,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(Sizes.defaultSpace),
       child: Column(
         children: [
           Image(
@@ -29,7 +29,7 @@ class OnboardingPage extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: TSizes.spaceBtwItems),
+          SizedBox(height: Sizes.spaceBtwItems),
           Text(
             subtitle,
             style: TextStyle(
