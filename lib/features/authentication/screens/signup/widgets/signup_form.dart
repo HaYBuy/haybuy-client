@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
-import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
 import 'package:iconsax/iconsax.dart';
