@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:haybuy_client/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:haybuy_client/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -6,10 +8,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      home: const OnboardingScreen(),
     );
   }
 }
