@@ -20,6 +20,9 @@ class OnboardingScreen extends StatelessWidget {
               OnboardingPage(image: TImage.tOnboardingImage3, title: TText.tOnboardingTitle3, subtitle: TText.tOnboardingSubTitle3),
             ],
           ),
+
+          // Skip Button
+          Positioned(child: TextButton(onPressed: (){},child: const Text("Skip"),)),
         ],
       )
     );
