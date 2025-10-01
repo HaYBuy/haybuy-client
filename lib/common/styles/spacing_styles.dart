@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 
-class TSpacingStyle {
+class SpacingStyle {
   static const EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(
     top: Sizes.appBarHeight,
     left: Sizes.defaultSpace,

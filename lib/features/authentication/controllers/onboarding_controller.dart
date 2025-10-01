@@ -34,11 +34,11 @@ class OnboardingController extends GetxController {
   }
 
   void skipPage() {
-    currentPage.value = 2;
-    pageController.animateToPage(
-      2,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeIn,
-    );
+    Get.off(const LoginScreen());
+    // pageController.animateToPage(
+    //   2,
+    //   duration: const Duration(milliseconds: 300),
+    //   curve: Curves.easeIn,
+    // );
   }
 }
