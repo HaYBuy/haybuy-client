@@ -12,11 +12,12 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = HelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Signup Screen')),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(Sizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///Tile
               Text(
@@ -119,7 +120,8 @@ class SignupScreen extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: ' ${Texts.and} ',
-                                style: Theme.of(context).textTheme.bodySmall),
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
                               TextSpan(
                                 text: Texts.termsOfUse,
                                 style: Theme.of(context).textTheme.bodyMedium!
@@ -137,6 +139,16 @@ class SignupScreen extends StatelessWidget {
                           ),
                         ),
                       ],
+                    ),
+
+                    SizedBox(height: Sizes.spaceBtwSections),
+
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(Texts.createAccount),
+                      ),
                     ),
                   ],
                 ),
