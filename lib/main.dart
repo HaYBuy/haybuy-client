@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haybuy_client/features/authentication/screens/onboarding.dart';
+import 'package:haybuy_client/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:haybuy_client/utils/theme/theme.dart';
 
 void main() {
