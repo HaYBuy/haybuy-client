@@ -45,8 +45,8 @@ class TDeviceUtils {
     return MediaQuery.of(Get.context!).devicePixelRatio;
   }
 
-  static double getStatusBarHeight() {
-    return MediaQuery.of(Get.context!).padding.top;
+  static double getStatusBarHeight(BuildContext context) {
+    return MediaQuery.of(context).padding.top;
   }
 
   static double getBottomNavigationBarHeight() {
