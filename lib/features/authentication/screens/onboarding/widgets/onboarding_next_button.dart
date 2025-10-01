@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/features/authentication/controllers/onboarding_controller.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -26,7 +27,7 @@ class OnboardingNextButton extends StatelessWidget {
           shape: const CircleBorder(),
           backgroundColor: dark ? TColors.iconPrimaryLight : TColors.dark, // <-- Button color
         ),
-        child: const Icon(Icons.arrow_forward_ios_rounded),
+        child: const Icon(Iconsax.arrow_right_3),
       )
     );
   }
