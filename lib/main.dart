@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/features/authentication/screens/onboarding.dart';
 import 'package:haybuy_client/utils/theme/theme.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
+      home: const OnboardingScreen(),
     );
   }
 }
