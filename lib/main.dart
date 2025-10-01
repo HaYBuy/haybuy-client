@@ -4,6 +4,9 @@ import 'package:haybuy_client/features/authentication/screens/onboarding/onboard
 import 'package:haybuy_client/utils/theme/theme.dart';
 
 void main() {
+
+  
+
   runApp(const App());
 }
 
