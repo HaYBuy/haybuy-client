@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home.dart';
+import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NavigationMenu extends StatelessWidget {
@@ -9,6 +10,7 @@ class NavigationMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
+    final dark = HelperFunctions.isDarkMode(context);
 
     return Scaffold(
       bottomNavigationBar: Obx(
@@ -17,6 +19,8 @@ class NavigationMenu extends StatelessWidget {
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) => controller.selectedIndex.value = index,
+          backgroundColor: dark ? Colors.black : Colors.white,
+          indicatorColor: dark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
 
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
