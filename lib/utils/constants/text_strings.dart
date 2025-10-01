@@ -58,4 +58,7 @@ class Texts {
   static const String verificationCode = "Verification Code";
   static const String resenEmail = "Resend E-mail";
   static const String resenEmailIn = "Resend E-mail in";
+
+  static const String signupTitle = "Let's create your account";
+  static const String and = "and";
 }

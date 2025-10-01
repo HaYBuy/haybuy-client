@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:haybuy_client/features/authentication/screens/signup/signup.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
 import 'package:iconsax/iconsax.dart';
@@ -59,7 +61,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () => Get.offAll(const SignupScreen()),
                 child: Text(Texts.createAccount),
               ),
             ),
