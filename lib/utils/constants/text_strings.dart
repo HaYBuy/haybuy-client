@@ -10,8 +10,4 @@ class TText {
       'Get your products delivered to your doorstep quickly and reliably.';
   static const String tOnboardingSubTitle3 =
       'Pay for your products easily and securely through our app.';
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d63eb60d06923e321ade6b61baa28a7dc7c0ac9f
