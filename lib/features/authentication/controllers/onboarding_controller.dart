@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haybuy_client/features/authentication/screens/login/login.dart';
 
 class OnboardingController extends GetxController {
   static OnboardingController get instance => Get.find();
@@ -13,20 +14,31 @@ class OnboardingController extends GetxController {
 
   void dotNavigationClick(index) {
     currentPage.value = index;
-    pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+    pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
   }
 
   void nextPage() {
     if (currentPage.value == 2) {
-      // Get.to(LoginScreen());
+      Get.offAll(const LoginScreen());
     } else {
       currentPage.value += 1;
-      pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
     }
   }
 
   void skipPage() {
     currentPage.value = 2;
-    pageController.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+    pageController.animateToPage(
+      2,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
   }
 }

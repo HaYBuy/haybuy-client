@@ -19,12 +19,12 @@ class OnboardingDotNavigation extends StatelessWidget {
 
     return Positioned(
       bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
-      left: TSizes.defaultSpace,
+      left: Sizes.defaultSpace,
       child: SmoothPageIndicator(
         controller: controller.pageController,
         onDotClicked: controller.dotNavigationClick,
         count: 3,
-        effect: ExpandingDotsEffect(activeDotColor: dark ? TColors.lightGrey : TColors.dark, dotHeight: 6),
+        effect: ExpandingDotsEffect(activeDotColor: dark ? ConstColors.lightGrey : ConstColors.dark, dotHeight: 6),
       ),
     );
   }

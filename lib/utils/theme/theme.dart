@@ -8,38 +8,38 @@ import 'package:haybuy_client/utils/theme/custom_themes/outlined_button_theme.da
 import 'package:haybuy_client/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:haybuy_client/utils/theme/custom_themes/text_theme.dart';
 
-class TAppTheme {
-  TAppTheme._();
+class AppTheme {
+  AppTheme._();
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
     primaryColor: Colors.blue,
-    textTheme: TTextTheme.lightTextTheme,
+    textTheme: CustomTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: TAppBarTheme.lightAppBarTheme,
+    appBarTheme: CustomAppBarTheme.lightAppBarTheme,
     checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
-    outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFielTheme.lightInputDecorationTheme,
+    outlinedButtonTheme: CustomOutlinedButtonTheme.lightOutlinedButtonTheme,
+    inputDecorationTheme: TextFormFieldTheme.lightInputDecorationTheme,
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
-    textTheme: TTextTheme.darkTextTheme,
+    textTheme: CustomTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
     scaffoldBackgroundColor: Colors.black,
-    appBarTheme: TAppBarTheme.darkAppBarTheme,
+    appBarTheme: CustomAppBarTheme.darkAppBarTheme,
     checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
-    outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
-    inputDecorationTheme: TTextFormFielTheme.darkInputDecorationTheme,
+    outlinedButtonTheme: CustomOutlinedButtonTheme.darkOutlinedButtonTheme,
+    inputDecorationTheme: TextFormFieldTheme.darkInputDecorationTheme,
   );
 
 }

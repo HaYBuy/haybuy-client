@@ -1,4 +1,4 @@
-class TSizes {
+class Sizes {
   static const double xs = 4.0;
   static const double sm = 8.0;
   static const double md = 16.0;
@@ -20,7 +20,7 @@ class TSizes {
   static const double buttonWidth = 120.0;
   static const double buttonElevation = 120.0;
 
-  static const double appBarHeight = 56.0;
+  static const double appBarHeight = 80.0;
 
   static const double imageThumbSize = 80.0;
 
