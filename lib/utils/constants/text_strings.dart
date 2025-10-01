@@ -46,8 +46,8 @@ class Texts {
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of Use";
   static const String verificationCode = "Verification Code";
-  static const String resenEmail = "Resend E-mail";
-  static const String resenEmailIn = "Resend E-mail in";
+  static const String resendEmail = "Resend E-mail";
+  static const String resendEmailIn = "Resend E-mail in";
 
   static const String signupTitle = "Let's create your account";
   static const String and = "and";
