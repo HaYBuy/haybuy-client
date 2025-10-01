@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:haybuy_client/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:haybuy_client/utils/theme/theme.dart';
 
-void main() async {
-  await GetStorage.init();
+void main() {
+
+  
 
   runApp(const App());
 }
@@ -17,8 +16,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       themeMode: ThemeMode.system,
-      theme: TAppTheme.lightTheme,
-      darkTheme: TAppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       home: const OnboardingScreen(),
     );
   }

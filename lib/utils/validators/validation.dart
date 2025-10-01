@@ -47,7 +47,7 @@ class TValidator {
               : 0);
 
       if (age < 18) {
-        return TTexts.dateOfBirthError;
+        return Texts.dateOfBirthError;
       }
     } catch (e) {
       return 'Invalid date format. Use dd-MMM-yyyy.';
