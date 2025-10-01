@@ -12,7 +12,7 @@ class OnboardingSkip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: TDeviceUtils.getAppBarHeight(),
+      top: DeviceUtils.getAppBarHeight(),
       right: Sizes.defaultSpace,
       child: TextButton(
         onPressed: () {
