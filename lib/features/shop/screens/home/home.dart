@@ -1,12 +1,10 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:haybuy_client/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_ccontainer.dart';
-import 'package:haybuy_client/common/widgets/images/rounded_image.dart';
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/shop/screens/home/widgets/announcement_slider.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:haybuy_client/utils/constants/image_strings.dart';
@@ -63,28 +61,11 @@ class HomeScreen extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.all(Sizes.defaultSpace),
-              child: Column(
-                children: [
-                  CarouselSlider(
-                    options: CarouselOptions(viewportFraction: 0.8),
-                    items: [
-                      RoundedImage(imageUrl: Images.onboardingImage1),
-                      RoundedImage(imageUrl: Images.onboardingImage2),
-                      RoundedImage(imageUrl: Images.onboardingImage3),
-                    ],
-                  ),
-                  const SizedBox(height: Sizes.spaceBtwItems),
-                  Row(
-                    children: [
-                      for (int i = 0; i < 3; i++)
-                        const CircularContainer(
-                          width: 20,
-                          height: 4,
-                          margin: EdgeInsets.only(right: 10),
-                          backgroundColor: Colors.green,
-                        ),
-                    ],
-                  ),
+              child: AnnouncementSlider(
+                banners: [
+                  Images.onboardingImage1,
+                  Images.onboardingImage2,
+                  Images.onboardingImage3,
                 ],
               ),
             ),
