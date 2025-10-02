@@ -34,7 +34,8 @@ class OnboardingController extends GetxController {
   }
 
   void skipPage() {
-    Get.off(const LoginScreen());
+    Get.offAll(const LoginScreen());
+    // currentPage.value = 2;
     // pageController.animateToPage(
     //   2,
     //   duration: const Duration(milliseconds: 300),

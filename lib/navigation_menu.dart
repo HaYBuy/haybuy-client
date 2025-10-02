@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haybuy_client/utils/helpers/helper_functions.dart';
+import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NavigationMenu extends StatelessWidget {
@@ -9,7 +10,7 @@ class NavigationMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = HelperFunctions.isDarkMode(context);
 
     return Scaffold(
       bottomNavigationBar: Obx(
@@ -20,7 +21,8 @@ class NavigationMenu extends StatelessWidget {
           onDestinationSelected: (index) => controller.selectedIndex.value = index,
           backgroundColor: dark ? Colors.black : Colors.white,
           indicatorColor: dark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
-          destinations: [
+
+          destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
             NavigationDestination(icon: Icon(Iconsax.heart), label: 'Favorites'),
@@ -28,7 +30,7 @@ class NavigationMenu extends StatelessWidget {
           ],
         ),
       ),
-      body: Obx(() => controller.screens[controller.selectedIndex.value]),
+      body: Obx(() => controller.screen[controller.selectedIndex.value]),
     );
   }
 }
@@ -36,10 +38,6 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [
-    Container(color: Colors.red), 
-    Container(color: Colors.green), 
-    Container(color: Colors.blue), 
-    Container(color: Colors.yellow)
+  final screen = [const HomeScreen(), Container(color: Colors.green), Container(color: Colors.blue), Container(color: Colors.yellow)
   ];
 }

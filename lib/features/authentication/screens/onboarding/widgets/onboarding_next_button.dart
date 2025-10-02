@@ -17,7 +17,7 @@ class OnboardingNextButton extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return Positioned(
-      bottom: TDeviceUtils.getBottomNavigationBarHeight(), 
+      bottom: DeviceUtils.getBottomNavigationBarHeight(), 
       right: Sizes.defaultSpace, 
       child: ElevatedButton(
         onPressed: (){
