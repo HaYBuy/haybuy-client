@@ -16,4 +16,6 @@ class Images {
       "assets/images/on_boarding_images/sammy-line-man-receives-a-mail.png";
   static String successfullyRegisterAnimation =
       "assets/images/on_boarding_images/sammy-line-man-receives-a-mail.png";
+
+  static const String user = "assets/logos/haybuy_logo.png";
 }

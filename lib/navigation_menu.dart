@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haybuy_client/features/personalization/screens/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
@@ -18,14 +19,20 @@ class NavigationMenu extends StatelessWidget {
           height: 80,
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
-          onDestinationSelected: (index) => controller.selectedIndex.value = index,
+          onDestinationSelected: (index) =>
+              controller.selectedIndex.value = index,
           backgroundColor: dark ? Colors.black : Colors.white,
-          indicatorColor: dark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
+          indicatorColor: dark
+              ? Colors.white.withOpacity(0.1)
+              : Colors.black.withOpacity(0.1),
 
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
-            NavigationDestination(icon: Icon(Iconsax.heart), label: 'Favorites'),
+            NavigationDestination(
+              icon: Icon(Iconsax.heart),
+              label: 'Favorites',
+            ),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
@@ -38,6 +45,10 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screen = [const HomeScreen(), Container(color: Colors.green), Container(color: Colors.blue), Container(color: Colors.yellow)
+  final screen = [
+    const HomeScreen(),
+    Container(color: Colors.green),
+    Container(color: Colors.blue),
+    const SettingScreen(),
   ];
 }
