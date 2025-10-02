@@ -5,7 +5,9 @@ import 'package:haybuy_client/utils/constants/image_strings.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UserProfileTile extends StatelessWidget {
-  const UserProfileTile({super.key});
+  const UserProfileTile({super.key, required this.onPressed});
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +31,10 @@ class UserProfileTile extends StatelessWidget {
         ).textTheme.bodyMedium!.apply(color: ConstColors.textWhite),
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: const Icon(Iconsax.edit, color: ConstColors.white),
       ),
+      onTap: onPressed,
     );
   }
 }
