@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haybuy_client/features/personalization/screens/settings.dart';
+import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
