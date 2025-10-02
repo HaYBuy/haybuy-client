@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 
 class TCheckboxTheme {
   TCheckboxTheme._();
@@ -8,9 +9,9 @@ class TCheckboxTheme {
     checkColor: WidgetStateProperty.all(Colors.white),
     fillColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.selected)) {
-        return Colors.blue; // สีของกล่องเมื่อเลือก
+        return ConstColors.primary; // Mint green when selected
       } else {
-        return Colors.transparent; // สีของกล่องเมื่อไม่ได้เลือก
+        return Colors.transparent; // Transparent when not selected
       }
     }),
   );
@@ -20,9 +21,9 @@ class TCheckboxTheme {
     checkColor: WidgetStateProperty.all(Colors.white),
     fillColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.selected)) {
-        return Colors.blue; // สีของกล่องเมื่อเลือก
+        return ConstColors.primary; // Mint green when selected
       } else {
-        return Colors.transparent; // สีของกล่องเมื่อไม่ได้เลือก
+        return Colors.transparent; // Transparent when not selected
       }
     }),
   );

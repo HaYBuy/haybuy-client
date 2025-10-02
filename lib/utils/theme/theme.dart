@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/theme/custom_themes/app_theme.dart';
 import 'package:haybuy_client/utils/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:haybuy_client/utils/theme/custom_themes/checkbox_theme.dart';
@@ -15,10 +16,16 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
+    primaryColor: ConstColors.primary, // Mint green primary
+    colorScheme: ColorScheme.light(
+      primary: ConstColors.primary,
+      secondary: ConstColors.secondary,
+      surface: ConstColors.lightBackground,
+      error: ConstColors.error,
+    ),
     textTheme: CustomTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: ConstColors.lightBackground,
     appBarTheme: CustomAppBarTheme.lightAppBarTheme,
     checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
@@ -26,14 +33,21 @@ class AppTheme {
     outlinedButtonTheme: CustomOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: TextFormFieldTheme.lightInputDecorationTheme,
   );
+
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
+    primaryColor: ConstColors.primary, // Mint green primary
+    colorScheme: ColorScheme.dark(
+      primary: ConstColors.primary,
+      secondary: ConstColors.secondary,
+      surface: ConstColors.darkBackground,
+      error: ConstColors.error,
+    ),
     textTheme: CustomTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: ConstColors.darkBackground,
     appBarTheme: CustomAppBarTheme.darkAppBarTheme,
     checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,
@@ -41,5 +55,4 @@ class AppTheme {
     outlinedButtonTheme: CustomOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: TextFormFieldTheme.darkInputDecorationTheme,
   );
-
 }

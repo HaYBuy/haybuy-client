@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -21,10 +22,12 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          backgroundColor: dark ? Colors.black : Colors.white,
+          backgroundColor: dark
+              ? ConstColors.darkBackground
+              : ConstColors.lightBackground,
           indicatorColor: dark
-              ? Colors.white.withOpacity(0.1)
-              : Colors.black.withOpacity(0.1),
+              ? ConstColors.primary.withOpacity(0.2)
+              : ConstColors.primary.withOpacity(0.1),
 
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
@@ -47,8 +50,8 @@ class NavigationController extends GetxController {
 
   final screen = [
     const HomeScreen(),
-    Container(color: Colors.green),
-    Container(color: Colors.blue),
+    Container(color: ConstColors.primaryBackground),
+    Container(color: ConstColors.secondaryBackground),
     const SettingScreen(),
   ];
 }
