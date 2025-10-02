@@ -68,7 +68,10 @@ class LoginForm extends StatelessWidget {
             ),
             const SizedBox(height: Sizes.spaceBtwSections),
 
-            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const NavigationMenu()), child: Text('Skip for now'))),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(onPressed: () => Get.to(() => const NavigationMenu()), child: const Text('Skip for now')),
+            ),
           ],
         ),
       ),

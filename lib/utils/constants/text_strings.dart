@@ -1,7 +1,7 @@
 class Texts {
 
   static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "HayBuy";
+  static const String homeAppbarSubTitle = "Taimoor Sikander";
 
   static const String dateOfBirthError = "You must be at least 18 years old.";
 
@@ -46,16 +46,9 @@ class Texts {
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of Use";
   static const String verificationCode = "Verification Code";
-  static const String resendEmail = "Resend E-mail";
-  static const String resendEmailIn = "Resend E-mail in";
+  static const String resenEmail = "Resend E-mail";
+  static const String resenEmailIn = "Resend E-mail in";
 
   static const String signupTitle = "Let's create your account";
   static const String and = "and";
-  static const String confirmEmail = "Verify your E-mail address";
-  static const String confirmEmailSubTitle = "Congratulations! Your account has been successfully created. To complete the registration process, please verify your email address by clicking on the link we just sent to your email.";
-
-  static const String textContinue = "Continue";
-
-  static const String yourAccountCreatedTitle = "Your Account successfully Created!";
-  static const String yourAccountCreatedSubTitle = "Welcome to Your New Journey with HayBuy. Let's get started!";
 }
