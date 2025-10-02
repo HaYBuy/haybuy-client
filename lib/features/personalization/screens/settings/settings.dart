@@ -32,7 +32,7 @@ class SettingScreen extends StatelessWidget {
                   ),
 
                   UserProfileTile(
-                    onPressed: () => Get.offAll(() => ProfileScreen()),
+                    onPressed: () => Get.to(() => ProfileScreen()),
                   ),
                   const SizedBox(height: Sizes.spaceBtwSections),
                 ],
