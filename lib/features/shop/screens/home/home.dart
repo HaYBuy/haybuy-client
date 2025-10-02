@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_ccontainer.dart';
+import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
+import 'package:haybuy_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_categories.dart';
@@ -50,6 +52,18 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Padding(
+              padding: EdgeInsets.all(Sizes.defaultSpace),
+              child: Column(
+                children: [
+                  // Products Horizontal List
+                  const SizedBox(height: Sizes.spaceBtwSections),
+
+                  // Products Vertical List
+                  GridLayout(itemCount: 8, itemBuilder: (_ , index ) => const ProductCardVertical(),),
+                ]
+              )
+            )
           ],
         ),
       ),
