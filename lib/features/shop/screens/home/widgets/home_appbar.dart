@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
-import 'package:haybuy_client/common/widgets/products.cart/cart_menu_icon.dart';
+import 'package:haybuy_client/common/widgets/products/cart/cart_menu_icon.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
