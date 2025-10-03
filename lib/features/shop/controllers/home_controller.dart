@@ -5,7 +5,7 @@ class HomeController extends GetxController {
 
   final carouseCurrentIndex = 0.obs;
 
-  void updatePageInddicator(index){
+  void updatePageIndicator(index){
     carouseCurrentIndex.value = index;
   }
 }

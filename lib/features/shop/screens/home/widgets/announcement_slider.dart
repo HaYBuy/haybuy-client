@@ -20,7 +20,7 @@ class AnnouncementSlider extends StatelessWidget {
         CarouselSlider(
           options: CarouselOptions(
             viewportFraction: 1,
-            onPageChanged: (index, _) => controller.updatePageInddicator(index),
+            onPageChanged: (index, _) => controller.updatePageIndicator(index),
           ),
           items: banners
               .map((url) => RoundedImage(imageUrl: url))
