@@ -4,8 +4,10 @@ import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_cco
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/shop/screens/home/widgets/announcement_slider.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:haybuy_client/utils/constants/image_strings.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -40,7 +42,11 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         // Heading
-                        SectionHeading(title: 'Popular Categories', showActionButton: false, textColor: ConstColors.white,),
+                        SectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: ConstColors.white,
+                        ),
                         SizedBox(height: Sizes.spaceBtwSections),
 
                         // List of Categories
@@ -52,6 +58,18 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.all(Sizes.defaultSpace),
+              child: AnnouncementSlider(
+                banners: [
+                  Images.onboardingImage1,
+                  Images.onboardingImage2,
+                  Images.onboardingImage3,
+                ],
+              ),
+            ),
+
             Padding(
               padding: EdgeInsets.all(Sizes.defaultSpace),
               child: Column(
@@ -60,10 +78,13 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: Sizes.spaceBtwSections),
 
                   // Products Vertical List
-                  GridLayout(itemCount: 8, itemBuilder: (_ , index ) => const ProductCardVertical(),),
-                ]
-              )
-            )
+                  GridLayout(
+                    itemCount: 8,
+                    itemBuilder: (_, index) => const ProductCardVertical(),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

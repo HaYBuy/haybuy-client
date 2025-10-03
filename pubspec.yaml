@@ -24,6 +24,16 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
 
+   ## -- Utility PACKAGES
+  lottie: ^3.3.1
+  badges: ^3.1.2
+  shimmer: ^3.0.0
+  readmore: ^3.0.0
+  image_picker: ^1.1.2
+  carousel_slider: ^5.0.0
+  connectivity_plus: ^6.1.1
+  country_code_picker: ^3.3.0
+
   
 
 
