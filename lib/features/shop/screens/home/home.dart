@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_ccontainer.dart';
+import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
@@ -59,6 +59,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            /// Announcement Slider
             Padding(
               padding: const EdgeInsets.all(Sizes.defaultSpace),
               child: AnnouncementSlider(
@@ -70,10 +71,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            /// Heading
             Padding(
               padding: EdgeInsets.all(Sizes.defaultSpace),
               child: Column(
                 children: [
+                  const SectionHeading(title: 'Following Products'),
                   // Products Horizontal List
                   const SizedBox(height: Sizes.spaceBtwSections),
 
