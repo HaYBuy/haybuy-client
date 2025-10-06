@@ -3,13 +3,15 @@ import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:haybuy_client/common/widgets/images/circular_image.dart';
+import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:haybuy_client/common/widgets/texts/brand_title_text_with_verify_icon.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
+import 'package:haybuy_client/utils/constants/enums.dart';
 import 'package:haybuy_client/utils/constants/image_strings.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
-import 'package:iconsax/iconsax.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -56,25 +58,57 @@ class StoreScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: Sizes.spaceBtwItems / 1.5),
 
-                    RoundedContainer(
-                      padding: const EdgeInsets.all(Sizes.sm),
-                      showBorder: true,
-                      backgroundColor: Colors.transparent,
-                      child: Row(
-                        children: [
-                          /// --Icon
-                          CircularImage(
-                            image: Images.onboardingImage1,
-                            width: 60,
-                            height: 60,
-                            padding: 0,
-                          ),
-                          const SizedBox(width: Sizes.spaceBtwItems / 2),
+                    GridLayout(
+                      itemCount: 4,
+                      mainAxisExtent: 80,
+                      itemBuilder: (_, index) {
+                        return GestureDetector(
+                          onDoubleTap: () {},
+                          child: RoundedContainer(
+                            padding: const EdgeInsets.all(Sizes.sm),
+                            showBorder: true,
+                            backgroundColor: Colors.transparent,
+                            child: Row(
+                              children: [
+                                /// --Icon
+                                CircularImage(
+                                  isNetworkImage: false,
+                                  image: Images.onboardingImage1,
+                                  backgroundColor: Colors.transparent,
+                                  overlayColor:
+                                      HelperFunctions.isDarkMode(context)
+                                      ? ConstColors.white
+                                      : ConstColors.black,
+                                ),
+                                const SizedBox(width: Sizes.spaceBtwItems / 2),
 
-                          /// -- Text
-                          Column(children: [],)
-                        ],
-                      ),
+                                /// -- Text
+                                /// -- Text
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const BrandTitleWithVerifiedIcon(
+                                        title: 'Apple',
+                                        brandTextSize: TextSizes.large,
+                                      ),
+                                      Text(
+                                        '256 products within this category belonging to this category',
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.labelMedium,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
 
                     /// -- Categories
