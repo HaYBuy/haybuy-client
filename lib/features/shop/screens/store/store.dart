@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
 import 'package:haybuy_client/common/widgets/appbar/tabbar.dart';
-import 'package:haybuy_client/common/widgets/brands/brand_showcase.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/cart/cart_menu_icon.dart';
@@ -9,7 +8,6 @@ import 'package:haybuy_client/common/widgets/brands/brand_card.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
 import 'package:haybuy_client/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
-import 'package:haybuy_client/utils/constants/image_strings.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 
