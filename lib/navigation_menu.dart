@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
 import 'package:haybuy_client/features/shop/screens/store/store.dart';
+import 'package:haybuy_client/features/shop/screens/wishlist/wishlist.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
@@ -52,7 +53,7 @@ class NavigationController extends GetxController {
   final screen = [
     const HomeScreen(),
     const StoreScreen(),
-    Container(color: ConstColors.secondaryBackground),
+    const FavouriteScreen(),
     const SettingScreen(),
   ];
 }

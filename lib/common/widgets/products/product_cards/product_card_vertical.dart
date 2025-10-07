@@ -32,6 +32,7 @@ class ProductCardVertical extends StatelessWidget {
         ),
         child: Column(
           children: [
+            /// Thumbnail, Wishlist Button, Discount Tag
             RoundedContainer(
               height: 180,
               padding: const EdgeInsets.all(Sizes.sm),
@@ -71,7 +72,10 @@ class ProductCardVertical extends StatelessWidget {
                   const Positioned(
                     top: 0,
                     right: 0,
-                    child: CircleIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: CircularIcon(
+                      icon: Iconsax.heart5,
+                      color: Colors.red,
+                    ),
                   ),
                 ],
               ),
@@ -80,18 +84,22 @@ class ProductCardVertical extends StatelessWidget {
 
             // Details
             Padding(
-              padding: const EdgeInsets.only(left: Sizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ProductTitleText(title: 'Muhahaha', smallSize: true),
-                  SizedBox(height: Sizes.spaceBtwItems / 2),
-                  BrandTitleWithVerifiedIcon(title: 'Apple'),
-                ],
+              padding: const EdgeInsets.symmetric(horizontal: Sizes.sm),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ProductTitleText(title: 'Muhahahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', smallSize: true),
+                    SizedBox(height: Sizes.spaceBtwItems / 2),
+                    BrandTitleWithVerifiedIcon(title: 'Apple'),
+                  ],
+                ),
               ),
             ),
             const Spacer(),
 
+            /// Price
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
