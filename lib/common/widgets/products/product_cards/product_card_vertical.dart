@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:haybuy_client/common/styles/shadows.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:haybuy_client/common/widgets/icons/circle_icon.dart';
@@ -6,6 +7,7 @@ import 'package:haybuy_client/common/widgets/images/rounded_image.dart';
 import 'package:haybuy_client/common/widgets/texts/brand_title_text_with_verify_icon.dart';
 import 'package:haybuy_client/common/widgets/texts/product_price_text.dart';
 import 'package:haybuy_client/common/widgets/texts/product_title_text.dart';
+import 'package:haybuy_client/features/shop/screens/product_details/product_detail.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,7 +23,7 @@ class ProductCardVertical extends StatelessWidget {
     final dark = HelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () =>  Get.to(()=> const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
