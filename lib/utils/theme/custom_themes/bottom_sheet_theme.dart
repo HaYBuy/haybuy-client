@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 
-class TBottomSheetTheme {
-  TBottomSheetTheme._();
+class CustomBottomSheetTheme {
+  CustomBottomSheetTheme._();
 
   static BottomSheetThemeData lightBottomSheetTheme = BottomSheetThemeData(
     showDragHandle: true,

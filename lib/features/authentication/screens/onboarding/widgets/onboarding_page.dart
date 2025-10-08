@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/utils/helpers/helper_function.dart';
 
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({
@@ -17,8 +17,8 @@ class OnboardingPage extends StatelessWidget {
       child: Column(
         children: [
           Image(
-            width: THelperFunctions.screenWidth(context) * 0.8,
-            height: THelperFunctions.screenHeight(context) * 0.6,
+            width: HelperFunctions.screenWidth(context) * 0.8,
+            height: HelperFunctions.screenHeight(context) * 0.6,
             image: AssetImage(image),
           ),
           Text(

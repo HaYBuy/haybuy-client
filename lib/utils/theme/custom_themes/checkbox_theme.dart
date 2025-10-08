@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 
-class TCheckboxTheme {
-  TCheckboxTheme._();
+class CustomCheckboxTheme {
+  CustomCheckboxTheme._();
 
   static CheckboxThemeData lightCheckboxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
