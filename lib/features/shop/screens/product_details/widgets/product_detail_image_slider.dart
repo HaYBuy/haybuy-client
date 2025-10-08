@@ -39,7 +39,7 @@ class ProductImageSlider extends StatelessWidget {
               child: SizedBox(
                 height: 80,
                 child: ListView.separated(
-                  separatorBuilder: (_, __) =>
+                  separatorBuilder: (_, _) =>
                       const SizedBox(width: Sizes.spaceBtwItems),
                   itemCount: 6,
                   shrinkWrap: true,

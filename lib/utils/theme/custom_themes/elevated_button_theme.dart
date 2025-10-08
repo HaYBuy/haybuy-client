@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 
-class TElevatedButtonTheme {
-  TElevatedButtonTheme._();
+class CustomElevatedButtonTheme {
+  CustomElevatedButtonTheme._();
 
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(

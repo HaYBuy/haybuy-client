@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 
-class TChipTheme {
-  TChipTheme._();
+class CustomChipTheme {
+  CustomChipTheme._();
 
   static ChipThemeData lightChipTheme = ChipThemeData(
     disabledColor: ConstColors.disabledBackgroundLight,

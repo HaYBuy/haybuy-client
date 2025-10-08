@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/utils/helpers/helper_function.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../../utils/helpers/helper_functions.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({
@@ -34,7 +34,7 @@ class CircularImage extends StatelessWidget {
         // If image background color is null then switch it to light and dark mode color design.
         color:
             backgroundColor ??
-            (THelperFunctions.isDarkMode(context)
+            (HelperFunctions.isDarkMode(context)
                 ? ConstColors.black
                 : ConstColors.white),
         borderRadius: BorderRadius.circular(100),

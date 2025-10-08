@@ -26,7 +26,7 @@ class SuccessScreen extends StatelessWidget {
             children: [
               Image(
                 image: AssetImage(image),
-                width: HelperFunctions.screenWidth() * 0.6,
+                width: HelperFunctions.screenWidth(context) * 0.6,
               ),
               const SizedBox(height: Sizes.spaceBtwSections),
 
