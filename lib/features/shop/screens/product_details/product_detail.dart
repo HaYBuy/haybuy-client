@@ -40,7 +40,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const ProductMetaData(),
 
                   // /// Attributes
-                  ProductAttributes(),    //x     
+                  ProductAttributes(),
                   const SizedBox(height: Sizes.spaceBtwSections),
 
                   // /// Checkout button
