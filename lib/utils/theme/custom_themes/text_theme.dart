@@ -50,7 +50,7 @@ class CustomTextTheme {
     bodySmall: const TextStyle().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
-      color: ConstColors.textSecondary.withOpacity(0.7),
+      color: ConstColors.textSecondary.withValues(alpha: 0.7),
     ),
 
     labelLarge: const TextStyle().copyWith(
@@ -111,7 +111,7 @@ class CustomTextTheme {
     bodySmall: const TextStyle().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
-      color: ConstColors.textDarkSecondary.withOpacity(0.7),
+      color: ConstColors.textDarkSecondary.withValues(alpha: 0.7),
     ),
 
     labelLarge: const TextStyle().copyWith(

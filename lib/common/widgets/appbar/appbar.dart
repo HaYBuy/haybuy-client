@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/device/device_utility.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
+import '../../../utils/helpers/helper_function.dart';
 
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -23,12 +25,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Sizes.md),
       child: AppBar(
           automaticallyImplyLeading: false,
         leading: showBackArrow
-            ? IconButton(onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left))
+            ? IconButton(onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left, color: dark ? ConstColors.white : ConstColors.dark,))
             : leadingIcon != null ? IconButton(
                 onPressed: onLeadingIconPressed, 
                 icon: Icon(leadingIcon)) : null,
