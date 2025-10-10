@@ -21,5 +21,5 @@ class Images {
 
   static const String creditCard = "assets/icons/payment_methods/credit-card.png";
   static const String mastercard = "assets/icons/payment_methods/master-card.png";
-  static const String successfulPayment = "assets/icons/payment_methods/successful-payment-icon.png";
+  static const String successfulPayment = "assets/icons/payment_methods/successful_payment_icon.png";
 }
