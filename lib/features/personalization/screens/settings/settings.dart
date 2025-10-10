@@ -5,6 +5,7 @@ import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_he
 import 'package:haybuy_client/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:haybuy_client/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/personalization/screens/address/address.dart';
 import 'package:haybuy_client/features/personalization/screens/profile/profile.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
@@ -50,7 +51,7 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
                     subTitle: 'Set shopping delivery address',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.shopping_cart,
