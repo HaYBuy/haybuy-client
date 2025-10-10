@@ -56,7 +56,7 @@ class ProductCardVertical extends StatelessWidget {
                         0,
                         255,
                         13,
-                      ).withOpacity(0.8),
+                      ).withValues(alpha: 0.8),
                       padding: const EdgeInsets.symmetric(
                         horizontal: Sizes.sm,
                         vertical: Sizes.xs,

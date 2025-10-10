@@ -28,8 +28,8 @@ class NavigationMenu extends StatelessWidget {
               ? ConstColors.darkBackground
               : ConstColors.lightBackground,
           indicatorColor: dark
-              ? ConstColors.primary.withOpacity(0.2)
-              : ConstColors.primary.withOpacity(0.1),
+              ? ConstColors.primary.withValues(alpha: 0.2)
+              : ConstColors.primary.withValues(alpha: 0.1),
 
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
