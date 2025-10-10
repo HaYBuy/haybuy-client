@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
+import 'package:haybuy_client/common/widgets/products/rating/rating_indicator.dart';
+import 'package:haybuy_client/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+import 'package:haybuy_client/features/shop/screens/product_reviews/widgets/user_review_card.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
-import 'package:haybuy_client/utils/device/device_utility.dart';
-
-import '../../../../utils/constants/colors.dart';
 
 class ProductReviewsScreen extends StatelessWidget {
   const ProductReviewsScreen({super.key});
@@ -12,7 +12,7 @@ class ProductReviewsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: const Text('Product Reviews'), showBackArrow: true,
+        title: const Text('Rating & Reviews'), showBackArrow: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -23,36 +23,17 @@ class ProductReviewsScreen extends StatelessWidget {
               Text('This is where the product reviews will be displayed.'),
               SizedBox(height: Sizes.spaceBtwItems),
 
-              Row(
-                children: [
-                  Expanded(flex: 3, child: Text('4.8', style: Theme.of(context).textTheme.displayLarge)),
-                  Expanded(
-                    flex: 7,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(flex: 1, child: Text('5', style: Theme.of(context).textTheme.bodyMedium)),
-                            Expanded(
-                              flex: 11,
-                              child: SizedBox(
-                                width: DeviceUtils.getScreenWidth(context) * 0.8,
-                                child: LinearProgressIndicator(
-                                  value: 0.5,
-                                  minHeight: 11,
-                                  backgroundColor: ConstColors.grey,
-                                  borderRadius: BorderRadius.circular(7),
-                                  valueColor: const AlwaysStoppedAnimation(ConstColors.primary),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
+              // Overall Rating and Progress Indicators
+              const OverallProductRating(),
+              const CustomRatingBarIndicator(rating: 3.5),
+              Text('12,345', style: Theme.of(context).textTheme.bodySmall),
+              const SizedBox(height: Sizes.spaceBtwSections),
+
+              // User Reviews List
+              UserReviewCard(),
+              UserReviewCard(),
+              UserReviewCard(),
+              UserReviewCard(),
             ],
           ),
         ),
