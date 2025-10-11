@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class ProductMapScreen extends StatefulWidget {
   const ProductMapScreen({super.key});
@@ -14,38 +15,135 @@ class MapSampleState extends State<ProductMapScreen> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+  Position? _currentPosition;
+  bool _isLoading = true;
+
+  static const CameraPosition _kInitialPosition = CameraPosition(
+    target: LatLng(13.7563, 100.5018), // Bangkok as default
+    zoom: 14.0,
   );
 
-  static const CameraPosition _kLake = CameraPosition(
-    bearing: 192.8334901395799,
-    target: LatLng(37.43296265331129, -122.08832357078792),
-    tilt: 59.440717697143555,
-    zoom: 19.151926040649414,
-  );
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // ตรวจสอบว่า location service เปิดอยู่หรือไม่
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      setState(() => _isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('กรุณาเปิด Location Service')),
+        );
+      }
+      return;
+    }
+
+    // ขอสิทธิ์เข้าถึงตำแหน่ง
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        setState(() => _isLoading = false);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('ไม่ได้รับอนุญาตให้เข้าถึงตำแหน่ง')),
+          );
+        }
+        return;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      setState(() => _isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('กรุณาอนุญาตสิทธิ์ตำแหน่งในการตั้งค่า')),
+        );
+      }
+      return;
+    }
+
+    // รับตำแหน่งปัจจุบัน
+    try {
+      final position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      );
+      setState(() {
+        _currentPosition = position;
+        _isLoading = false;
+      });
+
+      // ย้ายกล้องไปยังตำแหน่งปัจจุบัน
+      final GoogleMapController controller = await _controller.future;
+      controller.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(position.latitude, position.longitude),
+            zoom: 15.0,
+          ),
+        ),
+      );
+    } catch (e) {
+      setState(() => _isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('ไม่สามารถรับตำแหน่งได้: $e')));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.hybrid,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : GoogleMap(
+              mapType: MapType.normal, // 2D ธรรมดา
+              initialCameraPosition: _kInitialPosition,
+              myLocationEnabled: true, // แสดงจุดตำแหน่งปัจจุบัน
+              myLocationButtonEnabled:
+                  false, // ปิดปุ่มเริ่มต้นเพราะเราจะใช้ปุ่มของเราเอง
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+            ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: const Text('To the lake!'),
-        icon: const Icon(Icons.directions_boat),
+        onPressed: _goToMyLocation,
+        label: const Text('ตำแหน่งของฉัน'),
+        icon: const Icon(Icons.my_location),
       ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.startFloat, // ย้ายปุ่มไปซ้ายล่าง
     );
   }
 
-  Future<void> _goToTheLake() async {
+  Future<void> _goToMyLocation() async {
+    if (_currentPosition == null) {
+      await _getCurrentLocation();
+      return;
+    }
+
     final GoogleMapController controller = await _controller.future;
-    await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    await controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(
+            _currentPosition!.latitude,
+            _currentPosition!.longitude,
+          ),
+          zoom: 15.0,
+        ),
+      ),
+    );
   }
 }
