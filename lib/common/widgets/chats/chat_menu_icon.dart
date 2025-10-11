@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haybuy_client/features/shop/screens/chat/chat.dart';
+import 'package:haybuy_client/features/shop/screens/chat/chat_list.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -19,7 +19,7 @@ class ChatCounterIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        IconButton(onPressed: () => Get.to(() => const ChatScreen()), icon: Icon(Iconsax.message, color: iconColor)),
+        IconButton(onPressed: () => Get.to(() => const ChatListScreen()), icon: Icon(Iconsax.message, color: iconColor)),
         Positioned(
           right: 0,
           child: Container(

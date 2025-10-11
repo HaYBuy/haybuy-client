@@ -22,8 +22,8 @@ class HomeAppBar extends StatelessWidget {
         ],
       ),
       actions: [
-        ChatCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,),
-        CartCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,)
+        CartCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,),
+        ChatCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,)
       ],
     );
   }
