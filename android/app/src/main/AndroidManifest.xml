@@ -3,6 +3,8 @@
         android:label="haybuy_client"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBZHL1qWkCwxmg8Mu8Z4DUqa4o5Se-55ik"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
