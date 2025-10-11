@@ -42,7 +42,7 @@ class ProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   RoundedImage(
-                    imageUrl: Images.onboardingImage1,
+                    imageUrl: Images.fruitCategory,
                     applyImageRadius: true,
                   ),
 
