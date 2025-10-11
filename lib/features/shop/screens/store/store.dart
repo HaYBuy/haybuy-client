@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
 import 'package:haybuy_client/common/widgets/appbar/tabbar.dart';
+import 'package:haybuy_client/common/widgets/chats/chat_menu_icon.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/cart/cart_menu_icon.dart';
@@ -24,7 +25,10 @@ class StoreScreen extends StatelessWidget {
             'Store',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          actions: [CartCounterIcon(onPressed: () {})],
+          actions: [
+            CartCounterIcon(onPressed: () {}),
+            ChatCounterIcon(onPressed: () {})
+          ],
         ),
         body: NestedScrollView(
           headerSliverBuilder: (_, innerBoxIsScrolled) {

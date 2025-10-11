@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
+import 'package:haybuy_client/common/widgets/chats/chat_menu_icon.dart';
 import 'package:haybuy_client/common/widgets/products/cart/cart_menu_icon.dart';
 
 import '../../../../../utils/constants/colors.dart';
@@ -21,7 +22,8 @@ class HomeAppBar extends StatelessWidget {
         ],
       ),
       actions: [
-        CartCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,)
+        CartCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,),
+        ChatCounterIcon(onPressed: () {  }, iconColor: ConstColors.white,)
       ],
     );
   }
