@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:haybuy_client/common/widgets/layouts/grid_layout.dart';
 import 'package:haybuy_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/shop/screens/all_products/all_products.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/announcement_slider.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_categories.dart';
@@ -59,26 +61,23 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            /// Announcement Slider
-            Padding(
-              padding: const EdgeInsets.all(Sizes.defaultSpace),
-              child: AnnouncementSlider(
-                banners: [
-                  Images.onboardingImage1,
-                  Images.onboardingImage2,
-                  Images.onboardingImage3,
-                ],
-              ),
-            ),
-
-            /// Heading
             Padding(
               padding: EdgeInsets.all(Sizes.defaultSpace),
               child: Column(
                 children: [
-                  const SectionHeading(title: 'Following Products'),
-                  // Products Horizontal List
+                  // Announcement Slider
+                  AnnouncementSlider(
+                    banners: [
+                      Images.onboardingImage1,
+                      Images.onboardingImage2,
+                      Images.onboardingImage3,
+                    ],
+                  ),
                   const SizedBox(height: Sizes.spaceBtwSections),
+
+                  // Heading
+                  SectionHeading(title: 'Following Products', onPressed: () => Get.to(() => const AllProducts())),
+                  const SizedBox(height: Sizes.spaceBtwItems),
 
                   // Products Vertical List
                   GridLayout(

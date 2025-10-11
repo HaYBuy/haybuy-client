@@ -18,6 +18,16 @@ class NavigationMenu extends StatelessWidget {
     final dark = HelperFunctions.isDarkMode(context);
 
     return Scaffold(
+      floatingActionButton: SizedBox(
+        width: 70,  
+        height: 70, 
+        child: FloatingActionButton(
+          onPressed: () {},
+          shape: const CircleBorder(),
+          child: const Icon(Icons.add, size: 40),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(
         () => NavigationBar(
           height: 80,
