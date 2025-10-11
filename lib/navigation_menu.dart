@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/features/shop/screens/product_create/product_create.dart';
 import 'package:haybuy_client/features/shop/screens/store/store.dart';
 import 'package:haybuy_client/features/shop/screens/wishlist/wishlist.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
@@ -21,7 +22,7 @@ class NavigationMenu extends StatelessWidget {
         width: 70,  
         height: 70, 
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {Get.to(()=> const CreateProductScreen());},
           shape: const CircleBorder(),
           child: const Icon(Icons.add, size: 40),
         ),
