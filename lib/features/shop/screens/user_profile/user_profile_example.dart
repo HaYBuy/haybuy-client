@@ -3,18 +3,18 @@ import 'package:get/get.dart';
 import 'package:haybuy_client/features/shop/screens/user_profile/user_profile_screen.dart';
 
 /// ตัวอย่างการใช้งาน UserProfileScreen
-/// 
+///
 /// วิธีเรียกใช้จากหน้าอื่น:
-/// 
+///
 /// 1. ใช้ Get.to() (GetX Navigation):
 ///    Get.to(() => const UserProfileScreen());
-/// 
+///
 /// 2. ใช้ Navigator (Standard Flutter):
 ///    Navigator.push(
 ///      context,
 ///      MaterialPageRoute(builder: (context) => const UserProfileScreen()),
 ///    );
-/// 
+///
 /// 3. ในอนาคต สามารถส่ง userId เพื่อดึงข้อมูล User นั้นๆ:
 ///    Get.to(() => UserProfileScreen(userId: 'user123'));
 
@@ -24,9 +24,7 @@ class UserProfileExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('User Profile Example'),
-      ),
+      appBar: AppBar(title: const Text('User Profile Example')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
@@ -41,7 +39,7 @@ class UserProfileExample extends StatelessWidget {
 }
 
 /// หมายเหตุ: Features ที่จะพัฒนาในอนาคต
-/// 
+///
 /// 1. รับ userId เป็น parameter เพื่อดึงข้อมูลจาก Backend
 /// 2. เชื่อมต่อกับ API เพื่อดึงข้อมูล:
 ///    - ข้อมูล User (ชื่อ, รูปภาพ, location, stats)

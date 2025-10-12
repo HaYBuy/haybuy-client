@@ -39,9 +39,7 @@ class UserAllReviewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('All Reviews'),
-      ),
+      appBar: AppBar(title: const Text('All Reviews')),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(Sizes.defaultSpace),

@@ -160,14 +160,11 @@ class UserHeaderSection extends StatelessWidget {
         const SizedBox(height: Sizes.xs),
         Text(
           value,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
-        Text(
-          label,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
+        Text(label, style: Theme.of(context).textTheme.bodySmall),
       ],
     );
   }

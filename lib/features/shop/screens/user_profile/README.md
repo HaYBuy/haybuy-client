@@ -17,8 +17,9 @@ lib/features/shop/screens/user_profile/
 ## 🎯 Features
 
 ### 1. User Header Section
+
 - **รูปโปรไฟล์**: แสดงรูปภาพโปรไฟล์ของผู้ขาย
-- **ข้อมูลพื้นฐาน**: 
+- **ข้อมูลพื้นฐาน**:
   - ชื่อผู้ใช้
   - สถานะการยืนยัน (Verified Seller)
   - ที่อยู่ (Location)
@@ -31,11 +32,13 @@ lib/features/shop/screens/user_profile/
   - ปุ่มติดตาม (Follow)
 
 ### 2. Reviews Section
+
 - แสดง **1 รีวิว** ล่าสุด
 - ปุ่ม "See All" เพื่อดูรีวิวทั้งหมด
 - นำไปที่หน้า `UserAllReviewsScreen` ที่แสดงรีวิวทั้งหมด
 
 ### 3. Products Section
+
 - แสดง**สินค้าทั้งหมด**ที่ผู้ขายเปิดขาย
 - ใช้ `GridLayout` เพื่อแสดงสินค้าในรูปแบบ Grid
 - ใช้ `ProductCardVertical` เพื่อแสดงแต่ละสินค้า
@@ -74,20 +77,22 @@ ElevatedButton(
 ฟีเจอร์ที่ควรพัฒนาต่อในอนาคต:
 
 ### 1. รับ User ID เป็น Parameter
+
 ```dart
 class UserProfileScreen extends StatelessWidget {
   final String userId;
-  
+
   const UserProfileScreen({
     super.key,
     required this.userId,
   });
-  
+
   // ดึงข้อมูลจาก Backend ตาม userId
 }
 ```
 
 ### 2. เชื่อมต่อกับ Backend API
+
 - ดึงข้อมูล User Profile
 - ดึง Reviews ของ User
 - ดึงสินค้าทั้งหมดของ User
@@ -95,6 +100,7 @@ class UserProfileScreen extends StatelessWidget {
 - ระบบส่งข้อความ (Chat)
 
 ### 3. State Management
+
 ใช้ GetX Controller เพื่อจัดการ state:
 
 ```dart
@@ -103,15 +109,15 @@ class UserProfileController extends GetxController {
   final RxInt followerCount = 0.obs;
   final RxList products = [].obs;
   final RxList reviews = [].obs;
-  
+
   Future<void> loadUserData(String userId) async {
     // Load data from API
   }
-  
+
   Future<void> toggleFollow() async {
     // Follow/Unfollow logic
   }
-  
+
   Future<void> sendMessage() async {
     // Navigate to chat
   }
@@ -119,6 +125,7 @@ class UserProfileController extends GetxController {
 ```
 
 ### 4. ฟีเจอร์เพิ่มเติม
+
 - **Pagination**: โหลดสินค้าและรีวิวทีละหน้า
 - **Filter/Sort**: กรองและเรียงลำดับสินค้า
 - **Search**: ค้นหาสินค้าในร้านของผู้ขาย
@@ -130,6 +137,7 @@ class UserProfileController extends GetxController {
 ## 📊 Data Structure
 
 ### User Profile Model (ตัวอย่าง)
+
 ```dart
 class UserProfile {
   final String id;
@@ -142,7 +150,7 @@ class UserProfile {
   final int followerCount;
   final int followingCount;
   final bool isFollowing;
-  
+
   UserProfile({
     required this.id,
     required this.name,
@@ -155,7 +163,7 @@ class UserProfile {
     this.followingCount = 0,
     this.isFollowing = false,
   });
-  
+
   factory UserProfile.fromJson(Map<String, dynamic> json) {
     return UserProfile(
       id: json['id'],

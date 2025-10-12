@@ -6,17 +6,20 @@
 
 1. **user_profile_screen.dart** - หน้าหลักที่รวมทุกส่วนเข้าด้วยกัน
 
-2. **widgets/user_header_section.dart** 
+2. **widgets/user_header_section.dart**
+
    - แสดงรูปโปรไฟล์และข้อมูลพื้นฐาน
    - Statistics: Products, Rating, Followers
    - ปุ่ม Message และ Follow
 
 3. **widgets/user_reviews_section.dart**
+
    - แสดง 1 รีวิว
    - ปุ่ม "See All" เพื่อดูรีวิวทั้งหมด
    - หน้า UserAllReviewsScreen สำหรับแสดงรีวิวทั้งหมด
 
 4. **widgets/user_products_section.dart**
+
    - แสดงสินค้าทั้งหมดในรูปแบบ Grid
    - ใช้ ProductCardVertical แสดงแต่ละสินค้า
 
@@ -81,6 +84,7 @@ ElevatedButton(
 ## 🔄 Next Steps - ขั้นตอนต่อไป
 
 ### 1. เชื่อมต่อกับ Backend
+
 - สร้าง Model สำหรับ UserProfile
 - สร้าง API Service เพื่อดึงข้อมูล
 - สร้าง Controller (GetX) เพื่อจัดการ State
@@ -92,12 +96,12 @@ ElevatedButton(
 ```dart
 class UserProfileScreen extends StatelessWidget {
   final String userId;
-  
+
   const UserProfileScreen({
     super.key,
     required this.userId,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     // ดึงข้อมูลจาก Backend ตาม userId
@@ -119,13 +123,13 @@ class UserProfileController extends GetxController {
   Rx<UserProfile?> userProfile = Rx<UserProfile?>(null);
   final RxList products = [].obs;
   final RxList reviews = [].obs;
-  
+
   Future<void> loadUserProfile(String userId) async {
     isLoading.value = true;
     // เรียก API
     isLoading.value = false;
   }
-  
+
   Future<void> toggleFollow() async {
     // Toggle follow/unfollow
   }
@@ -133,6 +137,7 @@ class UserProfileController extends GetxController {
 ```
 
 ### 4. ฟีเจอร์เพิ่มเติม
+
 - เพิ่ม Pagination สำหรับสินค้า
 - เพิ่ม Filter/Sort สำหรับสินค้า
 - เพิ่มระบบ Chat จาก Message button
