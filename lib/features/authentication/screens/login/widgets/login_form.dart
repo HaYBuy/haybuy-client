@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/authentication/controllers/login_controller.dart';
 import 'package:haybuy_client/features/authentication/screens/signup/signup.dart';
-import 'package:haybuy_client/navigation_menu.dart';
+// import 'package:haybuy_client/navigation_menu.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
 import 'package:haybuy_client/utils/validators/validation.dart';
@@ -104,13 +104,13 @@ class LoginForm extends StatelessWidget {
             const SizedBox(height: Sizes.spaceBtwSections),
 
             // Skip Button (for testing)
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Get.to(() => const NavigationMenu()),
-                child: const Text('Skip for now'),
-              ),
-            ),
+            // SizedBox(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     onPressed: () => Get.to(() => const NavigationMenu()),
+            //     child: const Text('Skip for now'),
+            //   ),
+            // ),
           ],
         ),
       ),
