@@ -13,6 +13,11 @@ class ApiConstants {
   static const String register = '$apiVersion/auth/register';
   static const String token = '$apiVersion/auth/token';
 
+  // User Endpoints
+  static const String deleteAccount = '$apiVersion/user/me';
+  static const String updateProfile = '$apiVersion/user/me';
+  static const String getUserProfile = '$apiVersion/user/me';
+
   // Headers
   static const Map<String, String> headers = {
     'Content-Type': 'application/json',

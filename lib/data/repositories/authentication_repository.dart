@@ -138,6 +138,24 @@ class AuthenticationRepository {
     }
   }
 
+  /// Delete user account
+  Future<Map<String, dynamic>> deleteAccount() async {
+    try {
+      _logger.i('Attempting to delete account');
+
+      final response = await _apiService.delete(
+        ApiConstants.deleteAccount,
+        headers: getAuthHeader(),
+      );
+
+      _logger.i('Account deleted successfully');
+      return response;
+    } catch (e) {
+      _logger.e('Delete account failed: $e');
+      rethrow;
+    }
+  }
+
   /// Clear all authentication data
   Future<void> clearAuth() async {
     try {
