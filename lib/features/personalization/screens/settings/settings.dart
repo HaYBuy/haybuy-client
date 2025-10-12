@@ -5,6 +5,7 @@ import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_he
 import 'package:haybuy_client/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:haybuy_client/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/personalization/controllers/user_controller.dart';
 import 'package:haybuy_client/features/personalization/screens/address/address.dart';
 import 'package:haybuy_client/features/personalization/screens/profile/profile.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
@@ -16,6 +17,8 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -92,13 +95,30 @@ class SettingScreen extends StatelessWidget {
 
                   const SizedBox(height: Sizes.spaceBtwSections),
 
+                  // Logout Button
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () => controller.logout(),
                       child: const Text('Log Out'),
                     ),
                   ),
+
+                  const SizedBox(height: Sizes.spaceBtwItems),
+
+                  // Delete Account Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () => controller.deleteAccount(),
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: Colors.red),
+                        foregroundColor: Colors.red,
+                      ),
+                      child: const Text('Delete Account'),
+                    ),
+                  ),
+
                   const SizedBox(height: Sizes.spaceBtwItems * 2.5),
                 ],
               ),

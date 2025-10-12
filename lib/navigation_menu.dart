@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/features/shop/screens/product_create/product_create.dart';
 import 'package:haybuy_client/features/shop/screens/product_map/product_map.dart';
 import 'package:haybuy_client/features/shop/screens/store/store.dart';
+import 'package:haybuy_client/features/shop/screens/user_profile/user_profile_screen.dart';
 import 'package:haybuy_client/features/shop/screens/wishlist/wishlist.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
@@ -18,16 +20,6 @@ class NavigationMenu extends StatelessWidget {
     final dark = HelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      floatingActionButton: SizedBox(
-        width: 70,  
-        height: 70, 
-        child: FloatingActionButton(
-          onPressed: () {},
-          shape: const CircleBorder(),
-          child: const Icon(Icons.add, size: 40),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(
         () => NavigationBar(
           height: 80,
@@ -43,6 +35,7 @@ class NavigationMenu extends StatelessWidget {
               : ConstColors.primary.withValues(alpha: 0.1),
 
           destinations: const [
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'User'),
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
             NavigationDestination(icon: Icon(Iconsax.map), label: 'Map'),
@@ -63,6 +56,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screen = [
+    const UserProfileScreen(),
     const HomeScreen(),
     const StoreScreen(),
     const ProductMapScreen(),
