@@ -47,5 +47,12 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Location permissions -->
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>แอปต้องการเข้าถึงตำแหน่งของคุณเพื่อแสดงบนแผนที่</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>แอปต้องการเข้าถึงตำแหน่งของคุณเพื่อแสดงบนแผนที่</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>แอปต้องการเข้าถึงตำแหน่งของคุณเพื่อแสดงบนแผนที่</string>
 	</dict>
 </plist>
