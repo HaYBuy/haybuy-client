@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 
@@ -19,12 +18,32 @@ class SettingsMenuTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon, size: 28, color: ConstColors.primary),
-      title: Text(title, style: Theme.of(context).textTheme.titleMedium),
-      subtitle: Text(subTitle, style: Theme.of(context).textTheme.labelMedium),
-      trailing: trailing,
-      onTap:onTap,
+    final bool isEnabled = onTap != null;
+
+    return Opacity(
+      opacity: isEnabled ? 1.0 : 0.5,
+      child: ListTile(
+        leading: Icon(
+          icon,
+          size: 28,
+          color: isEnabled ? ConstColors.primary : Colors.grey,
+        ),
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: isEnabled ? null : Colors.grey,
+          ),
+        ),
+        subtitle: Text(
+          subTitle,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+            color: isEnabled ? null : Colors.grey.shade600,
+          ),
+        ),
+        trailing: trailing,
+        onTap: onTap,
+        enabled: isEnabled,
+      ),
     );
   }
 }

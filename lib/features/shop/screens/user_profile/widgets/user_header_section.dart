@@ -8,7 +8,9 @@ import 'package:iconsax/iconsax.dart';
 
 /// Widget สำหรับแสดงข้อมูลหลักของ User (รูปโปรไฟล์, ชื่อ, รายละเอียด)
 class UserHeaderSection extends StatelessWidget {
-  const UserHeaderSection({super.key});
+  final String userId;
+
+  const UserHeaderSection({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
