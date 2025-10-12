@@ -9,6 +9,7 @@ import 'package:haybuy_client/features/shop/screens/all_products/all_products.da
 import 'package:haybuy_client/features/shop/screens/home/widgets/announcement_slider.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:haybuy_client/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:haybuy_client/features/shop/screens/product_search/product_search.dart';
 import 'package:haybuy_client/utils/constants/image_strings.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -35,6 +36,7 @@ class HomeScreen extends StatelessWidget {
                   SearchContainer(
                     text: 'Search for Products',
                     icon: Iconsax.search_normal,
+                    onTap: () => Get.to(() => const ProductSearchScreen()),
                   ),
                   SizedBox(height: Sizes.spaceBtwSections),
 
