@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
 import 'package:haybuy_client/common/widgets/appbar/tabbar.dart';
 import 'package:haybuy_client/common/widgets/chats/chat_menu_icon.dart';
@@ -11,6 +12,8 @@ import 'package:haybuy_client/features/shop/screens/store/widgets/category_tab.d
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
+
+import '../product_create/product_create.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -29,6 +32,17 @@ class StoreScreen extends StatelessWidget {
             CartCounterIcon(onPressed: () {}),
             ChatCounterIcon(onPressed: () {})
           ],
+        ),
+        floatingActionButton: SizedBox(
+        width: 70,
+        height: 70,
+        child: FloatingActionButton(
+          onPressed: () {
+            Get.to(() => const CreateProductScreen());
+          },
+            shape: const CircleBorder(),
+            child: const Icon(Icons.add, size: 40),
+          ),
         ),
         body: NestedScrollView(
           headerSliverBuilder: (_, innerBoxIsScrolled) {
