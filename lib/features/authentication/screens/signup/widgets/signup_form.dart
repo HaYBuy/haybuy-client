@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/authentication/controllers/signup_controller.dart';
+import 'package:haybuy_client/features/authentication/screens/login/login.dart';
 import 'package:haybuy_client/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
@@ -25,7 +26,7 @@ class SignupForm extends StatelessWidget {
                 child: TextFormField(
                   controller: controller.firstName,
                   validator: (value) =>
-                      TValidator.validateEmptyText('ชื่อ', value),
+                      TValidator.validateEmptyText('Name', value),
                   expands: false,
                   decoration: const InputDecoration(
                     labelText: Texts.firstName,
@@ -118,6 +119,17 @@ class SignupForm extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () => controller.signup(),
               child: const Text(Texts.createAccount),
+            ),
+          ),
+
+          const SizedBox(height: Sizes.spaceBtwItems),
+
+          // Back to Login Button
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton(
+              onPressed: () => Get.off(() => const LoginScreen()),
+              child: const Text('Back to Login'),
             ),
           ),
         ],

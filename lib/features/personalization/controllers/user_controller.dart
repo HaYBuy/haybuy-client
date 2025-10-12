@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:haybuy_client/common/widgets/dialogs/custom_dialogs.dart';
 import 'package:haybuy_client/data/repositories/authentication_repository.dart';
 import 'package:haybuy_client/features/authentication/screens/login/login.dart';
 import 'package:haybuy_client/utils/popups/full_screen_loader.dart';
@@ -18,33 +19,21 @@ class UserController extends GetxController {
   Future<void> logout() async {
     try {
       // Show confirmation dialog
-      final confirmed = await Get.dialog<bool>(
-        AlertDialog(
-          title: const Text('ออกจากระบบ'),
-          content: const Text('คุณต้องการออกจากระบบหรือไม่?'),
-          actions: [
-            TextButton(
-              onPressed: () => Get.back(result: false),
-              child: const Text('ยกเลิก'),
-            ),
-            TextButton(
-              onPressed: () => Get.back(result: true),
-              child: const Text(
-                'ออกจากระบบ',
-                style: TextStyle(color: Colors.red),
-              ),
-            ),
-          ],
-        ),
+      final confirmed = await CustomDialogs.showConfirmationDialog(
+        title: 'Log Out',
+        message: 'Are you sure you want to log out?',
+        confirmText: 'Log Out',
+        cancelText: 'Cancel',
+        isDanger: true,
       );
 
       // If user cancelled
       if (confirmed != true) return;
 
       // Show loader
-      FullScreenLoader.openLoadingDialog('กำลังออกจากระบบ...', '');
+      FullScreenLoader.openLoadingDialog('Logging out...', '');
 
-      // Logout
+      // Logout (Clear token and local data)
       await _authRepository.logout();
 
       logger.i('User logged out successfully');
@@ -53,18 +42,15 @@ class UserController extends GetxController {
       FullScreenLoader.stopLoading();
 
       // Show success message
-      Loaders.successSnackBar(
-        title: 'ออกจากระบบสำเร็จ',
-        message: 'แล้วพบกันใหม่!',
-      );
+      Loaders.successSnackBar(title: 'Logged Out', message: 'See you again!');
 
       // Redirect to Login Screen
       Get.offAll(() => const LoginScreen());
     } catch (e) {
       FullScreenLoader.stopLoading();
       Loaders.errorSnackBar(
-        title: 'เกิดข้อผิดพลาด',
-        message: 'ไม่สามารถออกจากระบบได้ กรุณาลองใหม่อีกครั้ง',
+        title: 'Error',
+        message: 'Failed to log out. Please try again.',
       );
       logger.e('Logout error: $e');
     }
@@ -73,80 +59,45 @@ class UserController extends GetxController {
   /// Delete Account
   Future<void> deleteAccount() async {
     try {
-      // Show confirmation dialog
-      final confirmed = await Get.dialog<bool>(
-        AlertDialog(
-          title: const Text('ลบบัญชี'),
-          content: const Text(
-            'คุณแน่ใจหรือไม่ที่จะลบบัญชี?\n\n'
-            '⚠️ ข้อมูลทั้งหมดจะถูกลบอย่างถาวร:\n'
-            '• ข้อมูลส่วนตัว\n'
-            '• ประวัติการสั่งซื้อ\n'
-            '• รายการโปรด\n'
-            '• ที่อยู่จัดส่ง\n\n'
-            'การดำเนินการนี้ไม่สามารถย้อนกลับได้',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Get.back(result: false),
-              child: const Text('ยกเลิก'),
-            ),
-            TextButton(
-              onPressed: () => Get.back(result: true),
-              child: const Text(
-                'ลบบัญชี',
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
+      // Show first warning dialog
+      final confirmed = await CustomDialogs.showWarningDialog(
+        title: 'Delete Account',
+        message: 'Are you sure you want to delete your account?',
+        warningPoints: [
+          'Personal Information',
+          'Order History',
+          'Wishlist Items',
+          'Saved Addresses',
+        ],
+        confirmText: 'Delete',
+        cancelText: 'Cancel',
       );
 
       // If user cancelled
       if (confirmed != true) return;
 
       // Show second confirmation for safety
-      final doubleConfirmed = await Get.dialog<bool>(
-        AlertDialog(
-          title: const Text(
-            'ยืนยันการลบบัญชีอีกครั้ง',
-            style: TextStyle(color: Colors.red),
-          ),
-          content: const Text(
-            'นี่คือการยืนยันครั้งสุดท้าย\n\n'
-            'คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีถาวร?',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Get.back(result: false),
-              child: const Text('ยกเลิก'),
-            ),
-            ElevatedButton(
-              onPressed: () => Get.back(result: true),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white,
-              ),
-              child: const Text('ยืนยันการลบบัญชี'),
-            ),
-          ],
-        ),
+      final doubleConfirmed = await CustomDialogs.showConfirmationDialog(
+        title: 'Final Confirmation',
+        message:
+            'This is your last chance.\n\nAre you absolutely sure you want to permanently delete your account?',
+        confirmText: 'Yes, Delete My Account',
+        cancelText: 'Cancel',
+        confirmColor: Colors.red,
+        isDanger: true,
       );
 
       // If user cancelled second confirmation
       if (doubleConfirmed != true) return;
 
       // Show loader
-      FullScreenLoader.openLoadingDialog('กำลังลบบัญชี...', '');
+      FullScreenLoader.openLoadingDialog('Deleting account...', '');
 
       // Call API to delete account
       await _authRepository.deleteAccount();
 
-      // Clear local data
-      await _authRepository.clearAuth();
+      // Call logout to clear local data and token
+      await _authRepository.logout();
 
       logger.i('Account deleted successfully');
 
@@ -155,8 +106,8 @@ class UserController extends GetxController {
 
       // Show success message
       Loaders.successSnackBar(
-        title: 'ลบบัญชีสำเร็จ',
-        message: 'บัญชีของคุณถูกลบเรียบร้อยแล้ว',
+        title: 'Account Deleted',
+        message: 'Your account has been successfully deleted.',
       );
 
       // Redirect to Login Screen
@@ -164,18 +115,18 @@ class UserController extends GetxController {
     } catch (e) {
       FullScreenLoader.stopLoading();
 
-      String errorMessage = 'ไม่สามารถลบบัญชีได้';
+      String errorMessage = 'Failed to delete account.';
 
       if (e.toString().contains('401')) {
-        errorMessage = 'กรุณาเข้าสู่ระบบใหม่';
+        errorMessage = 'Please log in again.';
       } else if (e.toString().contains('404')) {
-        errorMessage = 'ไม่พบบัญชีผู้ใช้';
+        errorMessage = 'User account not found.';
       } else if (e.toString().contains('Connection')) {
         errorMessage =
-            'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้\nกรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต';
+            'Unable to connect to server.\nPlease check your internet connection.';
       }
 
-      Loaders.errorSnackBar(title: 'เกิดข้อผิดพลาด', message: errorMessage);
+      Loaders.errorSnackBar(title: 'Error', message: errorMessage);
       logger.e('Delete account error: $e');
     }
   }

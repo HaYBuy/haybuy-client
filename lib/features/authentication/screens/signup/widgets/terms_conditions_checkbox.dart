@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/authentication/controllers/signup_controller.dart';
+import 'package:haybuy_client/features/authentication/screens/terms_conditions/terms_conditions.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:haybuy_client/utils/constants/text_strings.dart';
@@ -45,6 +47,10 @@ class TermsAndConditionsCheckbox extends StatelessWidget {
                         ? ConstColors.white
                         : ConstColors.primary,
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.to(() => const TermsAndConditionsScreen());
+                    },
                 ),
                 TextSpan(
                   text: ' ${Texts.and} ',
@@ -59,6 +65,10 @@ class TermsAndConditionsCheckbox extends StatelessWidget {
                         ? ConstColors.white
                         : ConstColors.primary,
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.to(() => const TermsAndConditionsScreen());
+                    },
                 ),
               ],
             ),

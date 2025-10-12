@@ -46,7 +46,7 @@ class SignupController extends GetxController {
   Future<void> signup() async {
     try {
       // Show loader
-      FullScreenLoader.openLoadingDialog('กำลังสร้างบัญชี...', '');
+      FullScreenLoader.openLoadingDialog('Creating your account', '');
 
       // Check Internet Connectivity
       // final isConnected = await NetworkManager.instance.isConnected();
@@ -65,8 +65,8 @@ class SignupController extends GetxController {
       if (!privacyPolicy.value) {
         FullScreenLoader.stopLoading();
         Loaders.warningSnackBar(
-          title: 'ยอมรับข้อกำหนด',
-          message: 'กรุณายอมรับข้อกำหนดและเงื่อนไขการใช้งาน',
+          title: 'Accept Terms',
+          message: 'Please accept the Terms and Conditions to continue',
         );
         return;
       }
@@ -88,8 +88,8 @@ class SignupController extends GetxController {
 
       // Show success message
       Loaders.successSnackBar(
-        title: 'ยินดีด้วย!',
-        message: 'สร้างบัญชีสำเร็จแล้ว กรุณาเข้าสู่ระบบ',
+        title: 'Congratulations!',
+        message: 'Account created successfully. Please log in.',
       );
 
       // Move to Verify Email Screen (or Login Screen)
@@ -97,27 +97,28 @@ class SignupController extends GetxController {
     } on ApiException catch (e) {
       FullScreenLoader.stopLoading();
 
-      String errorMessage = 'สร้างบัญชีไม่สำเร็จ';
+      String errorMessage = 'Registration failed';
 
       if (e.message.toLowerCase().contains('already exists')) {
-        errorMessage = 'ชื่อผู้ใช้นี้ถูกใช้งานแล้ว กรุณาเลือกชื่อผู้ใช้อื่น';
+        errorMessage =
+            'This username is already taken. Please choose another one.';
       } else if (e.statusCode == 400) {
         errorMessage = e.message;
       } else if (e.statusCode == 422) {
-        errorMessage = 'กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน';
+        errorMessage = 'Please fill in all fields correctly';
       } else if (e.statusCode == null) {
         errorMessage =
-            'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้\nกรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต';
+            'Unable to connect to server\nPlease check your internet connection';
       }
 
-      Loaders.errorSnackBar(title: 'เกิดข้อผิดพลาด', message: errorMessage);
+      Loaders.errorSnackBar(title: 'Error', message: errorMessage);
 
       logger.e('Registration error: ${e.message}');
     } catch (e) {
       FullScreenLoader.stopLoading();
       Loaders.errorSnackBar(
-        title: 'เกิดข้อผิดพลาด',
-        message: 'เกิดข้อผิดพลาดที่ไม่คาดคิด กรุณาลองใหม่อีกครั้ง',
+        title: 'Error',
+        message: 'An unexpected error occurred. Please try again.',
       );
       logger.e('Unexpected error during registration: $e');
     }

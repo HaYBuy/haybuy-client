@@ -57,8 +57,8 @@ class LoginController extends GetxController {
     try {
       // Show loader with simple loading indicator
       FullScreenLoader.openLoadingDialog(
-        'กำลังเข้าสู่ระบบ...',
-        'assets/images/loading_animation.json', // หรือใช้อันอื่นก็ได้
+        'Signing in to your account',
+        '', // Animation path (optional)
       );
 
       // Check Internet Connectivity
@@ -96,8 +96,8 @@ class LoginController extends GetxController {
 
       // Show success message
       Loaders.successSnackBar(
-        title: 'เข้าสู่ระบบสำเร็จ',
-        message: 'ยินดีต้อนรับกลับมา!',
+        title: 'Login Successful',
+        message: 'Welcome back!',
       );
 
       // Redirect to home
@@ -105,26 +105,26 @@ class LoginController extends GetxController {
     } on ApiException catch (e) {
       FullScreenLoader.stopLoading();
 
-      String errorMessage = 'เข้าสู่ระบบไม่สำเร็จ';
+      String errorMessage = 'Login failed';
       if (e.message.toLowerCase().contains('invalid')) {
-        errorMessage = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+        errorMessage = 'Invalid username or password';
       } else if (e.statusCode == 400) {
-        errorMessage = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+        errorMessage = 'Invalid username or password';
       } else if (e.statusCode == 422) {
-        errorMessage = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        errorMessage = 'Please fill in all required fields';
       } else if (e.statusCode == null) {
         errorMessage =
-            'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้\nกรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต';
+            'Unable to connect to server\nPlease check your internet connection';
       }
 
-      Loaders.errorSnackBar(title: 'เกิดข้อผิดพลาด', message: errorMessage);
+      Loaders.errorSnackBar(title: 'Error', message: errorMessage);
 
       logger.e('Login error: ${e.message}');
     } catch (e) {
       FullScreenLoader.stopLoading();
       Loaders.errorSnackBar(
-        title: 'เกิดข้อผิดพลาด',
-        message: 'เกิดข้อผิดพลาดที่ไม่คาดคิด กรุณาลองใหม่อีกครั้ง',
+        title: 'Error',
+        message: 'An unexpected error occurred. Please try again.',
       );
       logger.e('Unexpected error during login: $e');
     }
@@ -144,12 +144,12 @@ class LoginController extends GetxController {
       FullScreenLoader.stopLoading();
 
       Loaders.warningSnackBar(
-        title: 'กำลังพัฒนา',
-        message: 'ฟีเจอร์นี้กำลังอยู่ในระหว่างการพัฒนา',
+        title: 'Under Development',
+        message: 'This feature is currently under development',
       );
     } catch (e) {
       FullScreenLoader.stopLoading();
-      Loaders.errorSnackBar(title: 'เกิดข้อผิดพลาด', message: e.toString());
+      Loaders.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 }
