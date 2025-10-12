@@ -54,68 +54,60 @@ class MockVendorData {
 
   /// Get mock products for a vendor
   static List<ProductModel> getMockProducts(int vendorId) {
-    if (vendorId == 1) {
       return [
         ProductModel(
           id: 1,
           name: 'มะม่วงน้ำดอกไม้',
           description: 'มะม่วงสด หวานฉ่ำ คุณภาพดี',
           price: 120.0,
-          unit: 'กก.',
-          stock: 50,
+          quantity: 50,
+          status: "AVALAIBLE",
           imageUrl: null,
-          vendorId: 1,
-          isAvailable: true,
+          searchText: "มะม่วงนํ้าดอกไม้",
+          categoryId: 1,
+          ownerId: 1,
+          groupId: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          deletedAt: null,
+          // unit: 'กก.',
+          
         ),
         ProductModel(
           id: 2,
           name: 'ทุเรียนหมอนทอง',
           description: 'ทุเรียนแท้จากสวน หวานมัน อร่อย',
           price: 350.0,
-          unit: 'กก.',
-          stock: 20,
+          quantity: 20,
+          status: "AVALAIBLE",
           imageUrl: null,
-          vendorId: 1,
-          isAvailable: true,
+          searchText: "ทุเรียนหมอนทอง",
+          categoryId: 1,
+          ownerId: 2,
+          groupId: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          deletedAt: null,
+          // unit: 'กก.',
         ),
         ProductModel(
           id: 3,
-          name: 'มังคุดสด',
-          description: 'มังคุดจากสวนตรัง หวานฉ่ำ',
-          price: 80.0,
-          unit: 'กก.',
-          stock: 30,
+          name: 'มังคุด',
+          description: 'มังคุด มังคุด อร่อย',
+          price: 200.0,
+          quantity: 20,
+          status: "AVALAIBLE",
           imageUrl: null,
-          vendorId: 1,
-          isAvailable: true,
+          searchText: "มังคุด",
+          categoryId: 1,
+          ownerId: 2,
+          groupId: null,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          deletedAt: null,
+          // unit: 'กก.',
         ),
       ];
-    } else if (vendorId == 2) {
-      return [
-        ProductModel(
-          id: 4,
-          name: 'ข้าวหอมมะลิ',
-          description: 'ข้าวหอมมะลิ 100% คุณภาพพรีเมียม',
-          price: 45.0,
-          unit: 'กก.',
-          stock: 100,
-          imageUrl: null,
-          vendorId: 2,
-          isAvailable: true,
-        ),
-        ProductModel(
-          id: 5,
-          name: 'น้ำมันปาล์ม',
-          description: 'น้ำมันปาล์มบริสุทธิ์',
-          price: 55.0,
-          unit: 'ลิตร',
-          stock: 50,
-          imageUrl: null,
-          vendorId: 2,
-          isAvailable: true,
-        ),
-      ];
-    }
-    return [];
+    
   }
 }

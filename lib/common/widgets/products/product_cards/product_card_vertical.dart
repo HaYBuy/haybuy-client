@@ -1,135 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:haybuy_client/common/styles/shadows.dart';
-import 'package:haybuy_client/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:haybuy_client/common/widgets/icons/circle_icon.dart';
-import 'package:haybuy_client/common/widgets/images/rounded_image.dart';
-import 'package:haybuy_client/common/widgets/texts/brand_title_text_with_verify_icon.dart';
-import 'package:haybuy_client/common/widgets/texts/product_price_text.dart';
-import 'package:haybuy_client/common/widgets/texts/product_title_text.dart';
-import 'package:haybuy_client/features/shop/screens/product_details/product_detail.dart';
-import 'package:haybuy_client/utils/constants/sizes.dart';
-import 'package:haybuy_client/utils/helpers/helper_function.dart';
-import 'package:iconsax/iconsax.dart';
+import '../../../../features/shop/models/product_model.dart';
 
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 
 class ProductCardVertical extends StatelessWidget {
-  const ProductCardVertical({super.key});
+  final ProductModel? product;
+
+  const ProductCardVertical({this.product, super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = HelperFunctions.isDarkMode(context);
-
-    return GestureDetector(
-      onTap: () =>  Get.to(()=> const ProductDetailScreen()),
-      child: Container(
-        width: 180,
-        padding: const EdgeInsets.all(1),
-        decoration: BoxDecoration(
-          boxShadow: [ShadowStyle.verticalProductShadow],
-          borderRadius: BorderRadius.circular(Sizes.productImageRadius),
-          color: dark ? ConstColors.darkerGrey : ConstColors.white,
-        ),
-        child: Column(
-          children: [
-            /// Thumbnail, Wishlist Button, Discount Tag
-            RoundedContainer(
-              height: 180,
-              padding: const EdgeInsets.all(Sizes.sm),
-              backgroundColor: dark ? ConstColors.dark : ConstColors.lightGrey,
-              child: Stack(
-                children: [
-                  RoundedImage(
-                    imageUrl: Images.fruitCategory,
-                    applyImageRadius: true,
-                  ),
-
-                  // Sale
-                  Positioned(
-                    top: 12,
-                    child: RoundedContainer(
-                      radius: Sizes.sm,
-                      backgroundColor: const Color.fromARGB(
-                        255,
-                        0,
-                        255,
-                        13,
-                      ).withValues(alpha: 0.8),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Sizes.sm,
-                        vertical: Sizes.xs,
-                      ),
-                      child: Text(
-                        '20%',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelLarge!.apply(color: ConstColors.black),
-                      ),
-                    ),
-                  ),
-
-                  // Favourite
-                  const Positioned(
-                    top: 0,
-                    right: 0,
-                    child: CircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: Sizes.spaceBtwItems / 2),
-
-            // Details
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: Sizes.sm),
-              child: SizedBox(
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // รูปสินค้า
+          // if (product?.imageUrl != null && product!.imageUrl!.isNotEmpty)
+          if( false)
+          
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+              child: Image.network(
+                product!.imageUrl!,
+                height: 120,
                 width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ProductTitleText(title: 'Muhahahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', smallSize: true),
-                    SizedBox(height: Sizes.spaceBtwItems / 2),
-                    BrandTitleWithVerifiedIcon(title: 'Apple'),
-                  ],
-                ),
+                fit: BoxFit.cover,
               ),
+            )
+          else
+            Container(
+              height: 120,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+              ),
+              child: const Icon(Icons.image, size: 50, color: Colors.white70),
             ),
-            const Spacer(),
 
-            /// Price
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Pricce
-                Padding(
-                  padding: const EdgeInsets.only(left: Sizes.sm),
-                  child: const ProductPriceText(price: '35'),
+                // ชื่อสินค้า
+                Text(
+                  product?.name ?? 'No name',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: ConstColors.dark,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(Sizes.cardRadiusMd),
-                      bottomRight: Radius.circular(Sizes.productImageRadius),
+
+                const SizedBox(height: 4),
+
+                // ราคา
+                Text(
+                  '฿${(product?.price ?? 0).toStringAsFixed(2)}',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.green,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+
+                const SizedBox(height: 4),
+
+                // สถานะ (optional)
+                if (product?.status != null)
+                  Text(
+                    product!.status!,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
                     ),
                   ),
-                  child: SizedBox(
-                    width: Sizes.iconLg * 1.2,
-                    height: Sizes.iconLg * 1.2,
-                    child: Center(
-                      child: const Icon(Iconsax.add, color: ConstColors.white),
-                    ),
-                  ),
-                ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

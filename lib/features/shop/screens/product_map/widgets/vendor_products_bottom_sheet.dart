@@ -32,7 +32,7 @@ class VendorProductsBottomSheet extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(isDark ? 0.5 : 0.26),
+                color: Colors.black.withValues(alpha: isDark ? 0.5 : 0.26),
                 blurRadius: 10,
                 offset: const Offset(0, -2),
               ),
@@ -223,7 +223,7 @@ class ProductListItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    product.priceText,
+                    product.price.toString(),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -231,25 +231,25 @@ class ProductListItem extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  if (product.stock != null)
+                  if (product.quantity != null)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8,
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: product.stock! > 0
+                        color: product.quantity! > 0
                             ? (isDark ? Colors.green[900] : Colors.green[50])
                             : (isDark ? Colors.red[900] : Colors.red[50]),
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Text(
-                        product.stock! > 0
-                            ? 'คงเหลือ ${product.stock}'
+                        product.quantity! > 0
+                            ? 'คงเหลือ ${product.quantity}'
                             : 'สินค้าหมด',
                         style: TextStyle(
                           fontSize: 12,
-                          color: product.stock! > 0
+                          color: product.quantity! > 0
                               ? (isDark ? Colors.green[300] : Colors.green[700])
                               : (isDark ? Colors.red[300] : Colors.red[700]),
                           fontWeight: FontWeight.w500,
