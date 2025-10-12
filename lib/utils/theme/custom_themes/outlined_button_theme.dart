@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 
 class CustomOutlinedButtonTheme {
   CustomOutlinedButtonTheme._();
@@ -6,14 +7,14 @@ class CustomOutlinedButtonTheme {
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.black,
-      side: const BorderSide(color: Colors.blue),
+      foregroundColor: ConstColors.primary, // Mint green text
+      side: const BorderSide(color: ConstColors.primary), // Mint green border
       textStyle: const TextStyle(
         fontSize: 16,
-        color: Colors.black,
+        color: ConstColors.primary,
         fontWeight: FontWeight.w600,
       ),
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20 ),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     ),
   );
@@ -21,11 +22,11 @@ class CustomOutlinedButtonTheme {
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.white,
-      side: const BorderSide(color: Colors.blueAccent),
+      foregroundColor: ConstColors.primary, // Mint green text for dark mode
+      side: const BorderSide(color: ConstColors.primary), // Mint green border
       textStyle: const TextStyle(
         fontSize: 16,
-        color: Colors.white,
+        color: ConstColors.primary,
         fontWeight: FontWeight.w600,
       ),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),

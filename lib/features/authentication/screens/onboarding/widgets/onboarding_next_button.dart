@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:haybuy_client/features/authentication/controllers/onboarding_controller.dart';
+import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
 
 class OnboardingNextButton extends StatelessWidget {
   const OnboardingNextButton({
@@ -14,7 +14,7 @@ class OnboardingNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = HelperFunctions.isDarkMode(context);
 
     return Positioned(
       bottom: DeviceUtils.getBottomNavigationBarHeight(), 

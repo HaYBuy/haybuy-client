@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/features/shop/screens/product_map/product_map.dart';
+import 'package:haybuy_client/features/shop/screens/store/store.dart';
+import 'package:haybuy_client/features/shop/screens/users/users_list_screen.dart';
+import 'package:haybuy_client/features/shop/screens/wishlist/wishlist.dart';
+import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -18,14 +24,24 @@ class NavigationMenu extends StatelessWidget {
           height: 80,
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
-          onDestinationSelected: (index) => controller.selectedIndex.value = index,
-          backgroundColor: dark ? Colors.black : Colors.white,
-          indicatorColor: dark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
+          onDestinationSelected: (index) =>
+              controller.selectedIndex.value = index,
+          backgroundColor: dark
+              ? ConstColors.darkBackground
+              : ConstColors.lightBackground,
+          indicatorColor: dark
+              ? ConstColors.primary.withValues(alpha: 0.2)
+              : ConstColors.primary.withValues(alpha: 0.1),
 
           destinations: const [
+            // NavigationDestination(icon: Icon(Iconsax.user), label: 'User'),
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
-            NavigationDestination(icon: Icon(Iconsax.heart), label: 'Favorites'),
+            NavigationDestination(icon: Icon(Iconsax.map), label: 'Map'),
+            NavigationDestination(
+              icon: Icon(Iconsax.heart),
+              label: 'Favorites',
+            ),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
@@ -38,6 +54,12 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screen = [const HomeScreen(), Container(color: Colors.green), Container(color: Colors.blue), Container(color: Colors.yellow)
+  final screen = [
+    // const UsersListScreen(),
+    const HomeScreen(),
+    const StoreScreen(),
+    const ProductMapScreen(),
+    const FavouriteScreen(),
+    const SettingScreen(),
   ];
 }

@@ -10,7 +10,7 @@ class VerticalImageText extends StatelessWidget {
     required this.image, 
     required this.title, 
     this.textColor = ConstColors.white, 
-    this.backgroundColor = ConstColors.white, 
+    this.backgroundColor, 
     this.onTap,
   });
 
@@ -39,7 +39,7 @@ class VerticalImageText extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
-                child: Image(image: AssetImage(image), fit: BoxFit.cover, color: dark ? ConstColors.lightGrey : ConstColors.dark,),
+                child: Image(image: AssetImage(image), fit: BoxFit.cover),
               ),
             ),
             // Category Text

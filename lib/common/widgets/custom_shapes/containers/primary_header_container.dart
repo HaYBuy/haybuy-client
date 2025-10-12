@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haybuy_client/common/widgets/custom_shapes/containers/circle_container.dart';
+import 'package:haybuy_client/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -19,8 +19,8 @@ class PrimaryHeaderContainer extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 0),
         child: Stack(
           children: [
-            Positioned(top: -150, right: -250, child: CircleContainer(backgroundColor: ConstColors.textWhite.withOpacity(0.1),)),
-            Positioned(top: 100, right: -300, child: CircleContainer(backgroundColor: ConstColors.textWhite.withOpacity(0.1),)),
+            Positioned(top: -150, right: -250, child: CircularContainer(backgroundColor: ConstColors.textWhite.withValues(alpha: 0.1),)),
+            Positioned(top: 100, right: -300, child: CircularContainer(backgroundColor: ConstColors.textWhite.withValues(alpha: 0.1),)),
             child,
           ],
         ),
