@@ -14,6 +14,7 @@ import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/colors.dart';
+import '../product_create/product_create.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,12 +22,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: SizedBox(
+        width: 70,
+        height: 70,
+        child: FloatingActionButton(
+          onPressed: () {
+            Get.to(() => const CreateProductScreen());
+          },
+          shape: const CircleBorder(),
+          child: const Icon(Icons.add, size: 40),
+        ),
+      ),
+      
       body: SingleChildScrollView(
-        child: Column(
-          children: [
+        child: 
+        Column(
+          children: [ 
             PrimaryHeaderContainer(
               child: Column(
                 children: [
+                  
                   // Appbar
                   HomeAppBar(),
                   SizedBox(height: Sizes.spaceBtwSections),
