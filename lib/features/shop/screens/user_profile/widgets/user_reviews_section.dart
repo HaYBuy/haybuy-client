@@ -6,7 +6,9 @@ import 'package:haybuy_client/utils/constants/sizes.dart';
 
 /// Widget สำหรับแสดง Reviews ของ User (แสดง 1 รายการ + ปุ่มดูเพิ่มเติม)
 class UserReviewsSection extends StatelessWidget {
-  const UserReviewsSection({super.key});
+  final String userId;
+
+  const UserReviewsSection({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,13 @@ class UserReviewsSection extends StatelessWidget {
 
         // Show only 1 review
         const UserReviewCard(),
+
+        // Display user-specific reviews
+        Text(
+          'User Reviews for $userId',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        // Add more UI elements here
       ],
     );
   }

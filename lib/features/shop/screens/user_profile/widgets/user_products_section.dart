@@ -6,7 +6,9 @@ import 'package:haybuy_client/utils/constants/sizes.dart';
 
 /// Widget สำหรับแสดงสินค้าทั้งหมดที่ User เปิดขาย
 class UserProductsSection extends StatelessWidget {
-  const UserProductsSection({super.key});
+  final String userId;
+
+  const UserProductsSection({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {

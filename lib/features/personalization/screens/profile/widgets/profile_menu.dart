@@ -42,7 +42,7 @@ class ProfileMenu extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            const Expanded(child: Icon(Iconsax.arrow_right_34, size: 16)),
+            Expanded(child: Icon(icon, size: 18)),
           ],
         ),
       ),

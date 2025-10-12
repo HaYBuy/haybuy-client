@@ -14,9 +14,13 @@ class ApiConstants {
   static const String token = '$apiVersion/auth/token';
 
   // User Endpoints
+  static const String getMe = '$apiVersion/user/me';
+  static const String updateMe = '$apiVersion/user/me';
   static const String deleteAccount = '$apiVersion/user/me';
-  static const String updateProfile = '$apiVersion/user/me';
-  static const String getUserProfile = '$apiVersion/user/me';
+
+  // Profile Endpoints
+  static const String getMyProfile = '$apiVersion/profile/me';
+  static const String editMyProfile = '$apiVersion/profile/me/editprofile';
 
   // Headers
   static const Map<String, String> headers = {
