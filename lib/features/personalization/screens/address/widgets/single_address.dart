@@ -18,7 +18,7 @@ class SingleAddress extends StatelessWidget {
       padding: const EdgeInsets.all(Sizes.md),
       width: double.infinity,
       backgroundColor: selectedAddress
-          ? ConstColors.primary.withOpacity(0.5)
+          ? ConstColors.primary.withValues(alpha: 0.5)
           : Colors.transparent,
       borderColor: selectedAddress
           ? Colors.transparent

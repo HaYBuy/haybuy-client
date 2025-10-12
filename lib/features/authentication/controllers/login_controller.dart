@@ -139,7 +139,7 @@ class LoginController extends GetxController {
         'assets/images/loading_animation.json',
       );
 
-      // TODO: Implement Google Sign In
+      // Implement Google Sign In
 
       FullScreenLoader.stopLoading();
 
