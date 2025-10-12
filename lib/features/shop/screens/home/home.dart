@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           print('---');
                           print('🔍 Full Object: $firstItem');
                         }
-                                                return GridLayout(
+                        return GridLayout(
                           itemCount: items.length,
                           itemBuilder: ( context, index) => ProductCardVertical(product: items[index]),
                         );
