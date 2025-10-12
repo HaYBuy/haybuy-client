@@ -36,7 +36,7 @@ class ProductMetaData extends StatelessWidget {
             //     ).textTheme.labelLarge!.apply(color: ConstColors.black),
             //   ),
             // ),
-            const SizedBox(width: Sizes.spaceBtwItems),
+            // const SizedBox(width: Sizes.spaceBtwItems),
 
             /// Price
             // Text(
@@ -45,7 +45,7 @@ class ProductMetaData extends StatelessWidget {
             //     decoration: TextDecoration.lineThrough,
             //   ),
             // ),
-            const SizedBox(width: Sizes.spaceBtwItems),
+            // const SizedBox(width: Sizes.spaceBtwItems),
 
             ProductPriceText(price: product!.price.toStringAsFixed(2), isLarge: true),
           ],
@@ -62,15 +62,13 @@ class ProductMetaData extends StatelessWidget {
             const ProductTitleText(title: 'Status'),
             const SizedBox(width: Sizes.spaceBtwItems),
             Text(product?.status ?? 'Undefine', style: Theme.of(context).textTheme.titleMedium),
-          ],
-        ),
-        Row(
-          children: [
-            const ProductTitleText(title: 'Quantirty'),
+            const SizedBox(width: Sizes.spaceBtwItems),
+            const ProductTitleText(title: 'Quantity'),
             const SizedBox(width: Sizes.spaceBtwItems),
             Text(product?.quantity.toString() ?? 'out of stock', style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
+        
 
         const SizedBox(height: Sizes.spaceBtwItems / 1.5),
 
