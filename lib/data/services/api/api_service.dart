@@ -76,6 +76,35 @@ class ApiService {
     }
   }
 
+  /// GET request that returns a List instead of Map
+  Future<dynamic> getList(
+    String endpoint, {
+    Map<String, String>? headers,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    var url = Uri.parse('$baseUrl$endpoint');
+
+    if (queryParameters != null && queryParameters.isNotEmpty) {
+      url = url.replace(queryParameters: queryParameters);
+    }
+
+    try {
+      _logger.d('GET List Request to: $url');
+
+      final response = await http
+          .get(url, headers: {...ApiConstants.headers, ...?headers})
+          .timeout(ApiConstants.timeout);
+
+      _logger.d('Response Status: ${response.statusCode}');
+      _logger.d('Response Body: ${response.body}');
+
+      return _handleDynamicResponse(response);
+    } catch (e) {
+      _logger.e('API Error: $e');
+      rethrow;
+    }
+  }
+
   Future<Map<String, dynamic>> put(
     String endpoint, {
     Map<String, dynamic>? body,
@@ -134,6 +163,34 @@ class ApiService {
         return {};
       }
       return jsonDecode(response.body) as Map<String, dynamic>;
+    } else {
+      String errorMessage = 'Request failed';
+
+      try {
+        final errorBody = jsonDecode(response.body);
+        if (errorBody is Map<String, dynamic>) {
+          errorMessage =
+              errorBody['detail']?.toString() ??
+              errorBody['message']?.toString() ??
+              errorMessage;
+        }
+      } catch (e) {
+        errorMessage = response.body.isNotEmpty
+            ? response.body
+            : 'Request failed with status: ${response.statusCode}';
+      }
+
+      throw ApiException(errorMessage, response.statusCode);
+    }
+  }
+
+  /// Handle response that can be either Map or List
+  dynamic _handleDynamicResponse(http.Response response) {
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      if (response.body.isEmpty) {
+        return {};
+      }
+      return jsonDecode(response.body); // Can be Map or List
     } else {
       String errorMessage = 'Request failed';
 

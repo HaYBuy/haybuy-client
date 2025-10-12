@@ -74,6 +74,10 @@ class LoginController extends GetxController {
         return;
       }
 
+      // Clear any existing token first
+      await _authRepository.logout();
+      logger.d('Cleared old token before login');
+
       // Save Data if Remember Me is selected
       if (rememberMe.value) {
         localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
@@ -99,6 +103,9 @@ class LoginController extends GetxController {
         title: 'Login Successful',
         message: 'Welcome back!',
       );
+
+      // Add small delay to ensure token is saved
+      await Future.delayed(const Duration(milliseconds: 500));
 
       // Redirect to home
       Get.offAll(() => const NavigationMenu());

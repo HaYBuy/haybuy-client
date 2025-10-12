@@ -47,7 +47,7 @@ class SettingScreen extends StatelessWidget {
               padding: EdgeInsets.all(Sizes.defaultSpace),
               child: Column(
                 children: [
-                  SectionHeading(title: 'Account Settings'),
+                  SectionHeading(title: 'Account Settings', showActionButton: false,),
                   SizedBox(height: Sizes.spaceBtwItems),
 
                   SettingsMenuTile(
@@ -65,32 +65,32 @@ class SettingScreen extends StatelessWidget {
                   SettingsMenuTile(
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
-                    subTitle: 'In-Progress and Completed orders',
-                    onTap: () {},
+                    subTitle: 'Coming Soon',
+                    onTap: null,
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.bank,
                     title: 'Bank Account',
-                    subTitle: 'Withdraw balance to registered bank account',
-                    onTap: () {},
+                    subTitle: 'Coming Soon',
+                    onTap: null,
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.discount_shape,
                     title: 'My Coupons',
-                    subTitle: 'List of all the discount coupons',
-                    onTap: () {},
+                    subTitle: 'Coming Soon',
+                    onTap: null,
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.notification,
                     title: 'Notifications',
-                    subTitle: 'Set any kind of notification messages',
-                    onTap: () {},
+                    subTitle: 'Coming Soon',
+                    onTap: null,
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.security_card,
                     title: 'Account Security',
-                    subTitle: 'Manage data usage and connected accounts',
-                    onTap: () {},
+                    subTitle: 'Coming Soon',
+                    onTap: null,
                   ),
 
                   const SizedBox(height: Sizes.spaceBtwSections),

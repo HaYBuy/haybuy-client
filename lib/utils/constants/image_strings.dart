@@ -1,6 +1,9 @@
 class Images {
-  static const String darkAppLogo = "assets/logos/haybuy_logo.png";
-  static const String lightAppLogo = "assets/logos/haybuy_logo.png";
+  static const String darkAppLogo = "assets/logos/haybuy_logo_no_bg.png";
+  static const String lightAppLogo = "assets/logos/haybuy_logo_no_bg.png";
+
+  static const String darkSplashLogo = "assets/logos/haybuy_logo_dark.png";
+  static const String lightSplashLogo = "assets/logos/haybuy_logo.png";
 
   static const String google = "assets/logos/google-logo.png";
   static const String facebook = "assets/logos/facebook-logo.png";
