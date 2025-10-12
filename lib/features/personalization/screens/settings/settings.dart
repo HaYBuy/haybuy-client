@@ -103,7 +103,7 @@ class SettingScreen extends StatelessWidget {
                       child: const Text('Log Out'),
                     ),
                   ),
-                  
+
                   const SizedBox(height: Sizes.spaceBtwItems),
 
                   // Delete Account Button
@@ -118,7 +118,7 @@ class SettingScreen extends StatelessWidget {
                       child: const Text('Delete Account'),
                     ),
                   ),
-                  
+
                   const SizedBox(height: Sizes.spaceBtwItems * 2.5),
                 ],
               ),

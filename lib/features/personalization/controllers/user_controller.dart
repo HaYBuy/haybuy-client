@@ -42,10 +42,7 @@ class UserController extends GetxController {
       if (confirmed != true) return;
 
       // Show loader
-      FullScreenLoader.openLoadingDialog(
-        'กำลังออกจากระบบ...',
-        '',
-      );
+      FullScreenLoader.openLoadingDialog('กำลังออกจากระบบ...', '');
 
       // Logout
       await _authRepository.logout();
@@ -98,7 +95,10 @@ class UserController extends GetxController {
               onPressed: () => Get.back(result: true),
               child: const Text(
                 'ลบบัญชี',
-                style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
@@ -140,10 +140,7 @@ class UserController extends GetxController {
       if (doubleConfirmed != true) return;
 
       // Show loader
-      FullScreenLoader.openLoadingDialog(
-        'กำลังลบบัญชี...',
-        '',
-      );
+      FullScreenLoader.openLoadingDialog('กำลังลบบัญชี...', '');
 
       // Call API to delete account
       await _authRepository.deleteAccount();
@@ -166,21 +163,19 @@ class UserController extends GetxController {
       Get.offAll(() => const LoginScreen());
     } catch (e) {
       FullScreenLoader.stopLoading();
-      
+
       String errorMessage = 'ไม่สามารถลบบัญชีได้';
-      
+
       if (e.toString().contains('401')) {
         errorMessage = 'กรุณาเข้าสู่ระบบใหม่';
       } else if (e.toString().contains('404')) {
         errorMessage = 'ไม่พบบัญชีผู้ใช้';
       } else if (e.toString().contains('Connection')) {
-        errorMessage = 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้\nกรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต';
+        errorMessage =
+            'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้\nกรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต';
       }
-      
-      Loaders.errorSnackBar(
-        title: 'เกิดข้อผิดพลาด',
-        message: errorMessage,
-      );
+
+      Loaders.errorSnackBar(title: 'เกิดข้อผิดพลาด', message: errorMessage);
       logger.e('Delete account error: $e');
     }
   }

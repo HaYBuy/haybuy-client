@@ -5,6 +5,7 @@
 ### 1. ไฟล์ที่สร้าง/แก้ไข
 
 #### Controllers (New)
+
 - **`lib/features/personalization/controllers/user_controller.dart`** ✅ สร้างใหม่
   - `logout()` - ออกจากระบบ
   - `deleteAccount()` - ลบบัญชี (สำหรับใช้ในอนาคต)
@@ -12,6 +13,7 @@
   - `getToken()` - ดึง token
 
 #### UI (Updated)
+
 - **`lib/features/personalization/screens/settings/settings.dart`** ✅ อัพเดท
   - เชื่อมปุ่ม "Log Out" กับ `UserController.logout()`
 
@@ -20,17 +22,19 @@
 ## 🎯 ฟีเจอร์ที่พร้อมใช้งาน
 
 ### Logout Flow
+
 ✅ **กดปุ่ม "Log Out"**  
 ✅ **แสดง Confirmation Dialog** (ยืนยันการออกจากระบบ)  
 ✅ **Loading Dialog** (กำลังออกจากระบบ...)  
 ✅ **ลบ Token** จาก Local Storage  
 ✅ **Success Message** (ออกจากระบบสำเร็จ)  
-✅ **Redirect** ไปหน้า Login  
+✅ **Redirect** ไปหน้า Login
 
 ### Bonus Features
+
 ✅ **Delete Account** - ฟังก์ชันลบบัญชี (พร้อมใช้งาน)  
 ✅ **isLoggedIn()** - เช็คสถานะการ login  
-✅ **getToken()** - ดึง token ที่เก็บไว้  
+✅ **getToken()** - ดึง token ที่เก็บไว้
 
 ---
 
@@ -69,6 +73,7 @@
 ### 1. ทดสอบ Logout
 
 **ขั้นตอน:**
+
 1. Login เข้าสู่ระบบ
 2. ไปหน้า Settings (Profile tab)
 3. Scroll ลงล่าง
@@ -77,6 +82,7 @@
 6. กด "ออกจากระบบ"
 
 **ผลลัพธ์ที่คาดหวัง:**
+
 - ✅ แสดง Loading Dialog
 - ✅ แสดง Success Message "ออกจากระบบสำเร็จ"
 - ✅ ไปหน้า Login
@@ -86,11 +92,13 @@
 ### 2. ทดสอบ Cancel Logout
 
 **ขั้นตอน:**
+
 1. กดปุ่ม "Log Out"
 2. Dialog ปรากฏขึ้น
 3. กด "ยกเลิก"
 
 **ผลลัพธ์ที่คาดหวัง:**
+
 - ✅ Dialog ปิด
 - ✅ ยังคงอยู่ในหน้า Settings
 - ✅ ยังคง login อยู่
@@ -111,18 +119,18 @@ class UserController extends GetxController {
   Future<void> logout() async {
     // 1. Show confirmation dialog
     final confirmed = await Get.dialog<bool>(AlertDialog(...));
-    
+
     if (confirmed != true) return;
-    
+
     // 2. Show loading
     FullScreenLoader.openLoadingDialog(...);
-    
+
     // 3. Logout
     await _authRepository.logout();
-    
+
     // 4. Show success message
     Loaders.successSnackBar(...);
-    
+
     // 5. Redirect to login
     Get.offAll(() => const LoginScreen());
   }
@@ -308,6 +316,7 @@ OutlinedButton(
 ## ✅ Testing Checklist
 
 ### Logout
+
 - [ ] กดปุ่ม Log Out → แสดง confirmation dialog
 - [ ] กด "ยกเลิก" → ยังคง login อยู่
 - [ ] กด "ออกจากระบบ" → แสดง loading dialog
@@ -318,6 +327,7 @@ OutlinedButton(
 - [ ] Login ใหม่ได้ปกติ
 
 ### Error Handling
+
 - [ ] Network error → แสดง error message
 - [ ] Storage error → แสดง error message
 
@@ -366,7 +376,7 @@ Future<void> logout() async {
     // ลบบรรทัด confirmation dialog
     // final confirmed = await Get.dialog<bool>(...);
     // if (confirmed != true) return;
-    
+
     // Logout เลย
     FullScreenLoader.openLoadingDialog(...);
     await _authRepository.logout();
@@ -382,6 +392,7 @@ Future<void> logout() async {
 ## 📚 Related Files
 
 ### Authentication Repository
+
 - `lib/data/repositories/authentication_repository.dart`
   - `logout()` - ลบ token และ user data
   - `clearAuth()` - ลบข้อมูลทั้งหมด
@@ -389,6 +400,7 @@ Future<void> logout() async {
   - `getToken()` - ดึง token
 
 ### UI Components
+
 - `lib/utils/popups/loaders.dart` - Success/Error messages
 - `lib/utils/popups/full_screen_loader.dart` - Loading dialog
 - `lib/features/authentication/screens/login/login.dart` - Login screen
@@ -400,15 +412,17 @@ Future<void> logout() async {
 **ปุ่ม Logout ใช้งานได้เรียบร้อยแล้ว!**
 
 ### ฟีเจอร์ที่พร้อมใช้:
+
 ✅ Logout with confirmation  
 ✅ Loading states  
 ✅ Success/Error messages  
 ✅ Token cleanup  
 ✅ Navigation security  
 ✅ Delete account (bonus)  
-✅ Login status check  
+✅ Login status check
 
 ### การทดสอบ:
+
 1. Login เข้าสู่ระบบ
 2. ไปหน้า Settings
 3. กดปุ่ม "Log Out"
