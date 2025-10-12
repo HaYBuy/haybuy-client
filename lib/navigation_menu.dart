@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
 import 'package:haybuy_client/features/shop/screens/product_create/product_create.dart';
+import 'package:haybuy_client/features/shop/screens/product_map/product_map.dart';
 import 'package:haybuy_client/features/shop/screens/store/store.dart';
+import 'package:haybuy_client/features/shop/screens/user_profile/user_profile_screen.dart';
 import 'package:haybuy_client/features/shop/screens/wishlist/wishlist.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/helpers/helper_function.dart';
@@ -33,8 +35,10 @@ class NavigationMenu extends StatelessWidget {
               : ConstColors.primary.withValues(alpha: 0.1),
 
           destinations: const [
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'User'),
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
+            NavigationDestination(icon: Icon(Iconsax.map), label: 'Map'),
             NavigationDestination(
               icon: Icon(Iconsax.heart),
               label: 'Favorites',
@@ -52,8 +56,10 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screen = [
+    const UserProfileScreen(),
     const HomeScreen(),
     const StoreScreen(),
+    const ProductMapScreen(),
     const FavouriteScreen(),
     const SettingScreen(),
   ];
