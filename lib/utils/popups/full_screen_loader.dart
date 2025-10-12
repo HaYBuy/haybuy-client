@@ -38,7 +38,7 @@ class FullScreenLoader {
                       child: CircularProgressIndicator(
                         strokeWidth: 3,
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          ConstColors.primary.withOpacity(0.3),
+                          ConstColors.primary.withValues(alpha: 0.3),
                         ),
                       ),
                     ),
