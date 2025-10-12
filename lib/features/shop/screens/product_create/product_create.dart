@@ -115,7 +115,6 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
         'category_id': _selectedCategoryId,
       };
 
-      print('Product Data: $productData');
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('สร้างสินค้าสำเร็จ')),

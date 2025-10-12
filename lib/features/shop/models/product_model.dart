@@ -1,28 +1,39 @@
+import 'dart:convert';
+
 class ProductModel {
   final int id;
   final String name;
   final String? description;
   final double price;
-  final String? unit;
-  final int? stock;
+  final int? quantity;
+  final String? status; 
   final String? imageUrl;
-  final int vendorId;
-  final bool isAvailable;
+  final String? searchText;
+  final int categoryId;
+  final int ownerId;
+  final int? groupId;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final DateTime? deletedAt;
+  // final String unit;
+
 
   ProductModel({
-    required this.id,
+    required this.id, 
     required this.name,
     this.description,
     required this.price,
-    this.unit,
-    this.stock,
+    this.quantity,
+    this.status,
     this.imageUrl,
-    required this.vendorId,
-    this.isAvailable = true,
+    this.searchText,
+    required this.categoryId,
+    required this.ownerId,
+    this.groupId,
     this.createdAt,
     this.updatedAt,
+    this.deletedAt,
+    // this.unit = "ชิ้น"
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -30,17 +41,22 @@ class ProductModel {
       id: json['id'] as int,
       name: json['name'] as String,
       description: json['description'] as String?,
-      price: (json['price'] as num).toDouble(),
-      unit: json['unit'] as String?,
-      stock: json['stock'] as int?,
+      price: double.tryParse(json['price'].toString()) ?? 0.0,
+      quantity: json['quantity'] as int,
+      status: json['status'] is String ? json['status'] : json['status']['value'], 
       imageUrl: json['image_url'] as String?,
-      vendorId: json['vendor_id'] as int,
-      isAvailable: json['is_available'] as bool? ?? true,
+      searchText: json['search_text'] as String?,
+      categoryId: json['category_id'] as int,
+      ownerId: json['owner_id'] as int,
+      groupId: json['group_id'] == null? null: (json['group_id'] is int? json['group_id'] as int: int.tryParse(json['group_id'].toString())),
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'] as String)
           : null,
       updatedAt: json['updated_at'] != null
           ? DateTime.parse(json['updated_at'] as String)
+          : null,
+      deletedAt: json['deleted_at'] != null
+          ? DateTime.parse(json['deleted_at'] as String)
           : null,
     );
   }
@@ -51,20 +67,21 @@ class ProductModel {
       'name': name,
       'description': description,
       'price': price,
-      'unit': unit,
-      'stock': stock,
+      'quantity': quantity,
+      'status': status,
       'image_url': imageUrl,
-      'vendor_id': vendorId,
-      'is_available': isAvailable,
+      'search_text': searchText,
+      'category_id': categoryId,
+      'owner_id': ownerId,
+      'group_id': groupId,
       'created_at': createdAt?.toIso8601String(),
       'updated_at': updatedAt?.toIso8601String(),
+      'deleted_at': deletedAt?.toIso8601String(),
     };
   }
 
-  String get priceText {
-    if (unit != null) {
-      return '฿${price.toStringAsFixed(2)}/$unit';
-    }
-    return '฿${price.toStringAsFixed(2)}';
+   static List<ProductModel> fromJsonList(String str) {
+    final jsonData = json.decode(str) as List;
+    return jsonData.map((e) => ProductModel.fromJson(e)).toList();
   }
 }
