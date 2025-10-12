@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/features/personalization/screens/settings/settings.dart';
 import 'package:haybuy_client/features/shop/screens/home/home.dart';
-import 'package:haybuy_client/features/shop/screens/product_create/product_create.dart';
+// import 'package:haybuy_client/features/shop/screens/product_create/product_create.dart';
 import 'package:haybuy_client/features/shop/screens/product_map/product_map.dart';
 import 'package:haybuy_client/features/shop/screens/store/store.dart';
 import 'package:haybuy_client/features/shop/screens/user_profile/user_profile_screen.dart';

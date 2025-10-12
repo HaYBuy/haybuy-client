@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:haybuy_client/common/widgets/appbar/appbar.dart';
 import 'package:haybuy_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
@@ -116,7 +115,6 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
         'category_id': _selectedCategoryId,
       };
 
-      print('Product Data: $productData');
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('สร้างสินค้าสำเร็จ')),
