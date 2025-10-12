@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:haybuy_client/features/shop/screens/home/home.dart';
+import 'package:haybuy_client/features/shop/screens/product_details/product_detail.dart';
 import 'package:haybuy_client/utils/constants/colors.dart';
 import 'package:haybuy_client/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -15,7 +18,7 @@ class ProductCardVertical extends StatelessWidget {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to product detail
+        Get.to(() => ProductDetailScreen(product: product));
       },
       child: Container(
         width: 180,

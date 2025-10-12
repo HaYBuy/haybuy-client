@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haybuy_client/common/widgets/texts/section_heading.dart';
+import 'package:haybuy_client/features/shop/models/product_model.dart';
 import 'package:haybuy_client/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:haybuy_client/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:haybuy_client/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -13,7 +14,9 @@ import 'package:readmore/readmore.dart';
 // import 'package:haybuy_client/utils/helpers/helper_function.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  final ProductModel? product;
+  
+  const ProductDetailScreen({required this.product, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,27 +42,27 @@ class ProductDetailScreen extends StatelessWidget {
                   const RatingAndShare(),
 
                   /// Price, Title, Stock, &Brand
-                  const ProductMetaData(),
+                  ProductMetaData(product: product),
 
-                  // /// Attributes
-                  ProductAttributes(),
-                  const SizedBox(height: Sizes.spaceBtwSections),
+                  /// Attributes
+                  // ProductAttributes(),
+                  // const SizedBox(height: Sizes.spaceBtwSections),
 
-                  // /// Checkout button
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('Checkout'),
-                    ),
-                  ),
-                  const SizedBox(height: Sizes.spaceBtwSections),
+                  // // /// Checkout button
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   child: ElevatedButton(
+                  //     onPressed: () {},
+                  //     child: const Text('Checkout'),
+                  //   ),
+                  // ),
+                  // const SizedBox(height: Sizes.spaceBtwSections),
 
                   // /// Description
                   const SectionHeading(title: 'Description', showActionButton: false),
                   const SizedBox(height: Sizes.spaceBtwItems),
-                  const ReadMoreText(
-                    'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                  ReadMoreText(
+                    product?.description ?? "No description",
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
