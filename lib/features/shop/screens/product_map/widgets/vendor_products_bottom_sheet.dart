@@ -32,7 +32,7 @@ class VendorProductsBottomSheet extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(isDark ? 0.5 : 0.26),
+                color: Colors.black.withValues(alpha: isDark ? 0.5 : 0.26),
                 blurRadius: 10,
                 offset: const Offset(0, -2),
               ),

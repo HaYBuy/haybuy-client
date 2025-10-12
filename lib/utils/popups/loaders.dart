@@ -19,8 +19,8 @@ class Loaders {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: Get.isDarkMode
-                ? ConstColors.darkerGrey.withOpacity(0.9)
-                : ConstColors.grey.withOpacity(0.9),
+                ? ConstColors.darkerGrey.withValues(alpha: 0.9)
+                : ConstColors.grey.withValues(alpha: 0.9),
           ),
           child: Center(
             child: Text(

@@ -75,7 +75,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    // TODO: Implement forgot password
+                    // Implement forgot password
                   },
                   child: const Text(Texts.forgotPassword),
                 ),
